@@ -45,13 +45,15 @@ header {
 
       li {
         cursor: pointer;
+        border-radius: 5px;
+        padding: 10px;
         margin-right: 50px;
           &:nth-of-type(4){
             margin-right: 0px;
           }
-
           &:hover {
             color: #89c997;
+            background-color: #fff;
           }
       }
     }
