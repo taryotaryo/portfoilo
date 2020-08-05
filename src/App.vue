@@ -25,11 +25,16 @@ body {
   background-color: #dcdcdc;
 }
 
+p {
+  margin: 0;
+  color: #696969;
+  line-height: 2;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #fff;
 }
 </style>

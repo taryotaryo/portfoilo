@@ -18,6 +18,7 @@ export default {
   .home-container {
     padding-top: 330px;
     padding-bottom: 330px;
+    text-align: center;
     .home-message{
       font-size: 100px;
       display: inline;

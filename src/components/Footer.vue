@@ -7,5 +7,6 @@
 <style>
 footer p {
     color: #fff;
+    text-align: center;
 }
 </style>
