@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
-    <v-header></v-header>
+  <div id="app" v-on:mousemove="callChildMethod()">
+    <v-cursor ref="child"></v-cursor>
+    <v-header v-on:mouseenter="callChildMethod2()"></v-header>
     <router-view></router-view>
     <v-footer></v-footer>
   </div>
@@ -10,12 +11,21 @@
 import 'normalize.css'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
-
+import Cursor from './components/Cursor.vue'
 export default {
   name: 'App',
   components: {
     'v-header': Header,
-    'v-footer': Footer
+    'v-footer': Footer,
+    'v-cursor': Cursor
+  },
+  methods: {
+    callChildMethod () {
+      this.$refs.child.getCursorCoordinate(event)
+    },
+    callChildMethod2 () {
+      this.$refs.child.cursorHover()
+    }
   }
 }
 </script>
@@ -23,6 +33,12 @@ export default {
 <style lang="scss">
 body {
   background-color: #dcdcdc;
+  cursor: none;
+  position: relative;
+}
+
+body a:hover{
+  cursor: none;/*aタグホバーのカーソルも非表示に*/
 }
 
 p {

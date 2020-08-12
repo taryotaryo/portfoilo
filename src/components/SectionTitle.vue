@@ -1,5 +1,6 @@
 <template>
   <h1 class="section-title" v-if="$route.path === '/about'">About</h1>
+  <h1 class="section-title" v-else if="$route.path === '/work'">Works</h1>
 </template>
 
 <script>
