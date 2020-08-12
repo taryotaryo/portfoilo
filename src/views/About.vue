@@ -53,7 +53,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import SectionTitle from '../components/SectionTitle.vue'
 export default {

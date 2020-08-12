@@ -1,13 +1,13 @@
 <template>
     <header>
       <div class="header-inner">
-        <div class="header-home">Home</div>
+        <div class="header-home" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Home</div>
         <div class="header-list">
             <ul class="header-lists">
-                <li>About</li>
-                <li>Works</li>
-                <li>Posts</li>
-                <li>Contact</li>
+                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</li>
+                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</li>
+                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Posts</li>
+                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li>
             </ul>
         </div>
       </div>
@@ -15,8 +15,16 @@
 </template>
 
 <script>
-
+import { bus } from '../main.js'
 export default {
+  methods: {
+    mouseEnter: function () {
+      bus.$emit('bus-event-onNav')
+    },
+    mouseLeave: function () {
+      bus.$emit('bus-event-offNav')
+    }
+  }
 }
 
 </script>
@@ -28,8 +36,9 @@ header {
 
   .header-home{
     line-height: 3;
-      &:hover {
-      color: #89c997;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.5);
     }
   }
 
@@ -44,16 +53,16 @@ header {
       display: flex;
 
       li {
-        cursor: pointer;
+        cursor: none;
         border-radius: 5px;
         padding: 10px;
         margin-right: 50px;
+        transition: 0.3s;
           &:nth-of-type(4){
             margin-right: 0px;
           }
           &:hover {
-            color: #89c997;
-            background-color: #fff;
+            transform: scale(1.5);
           }
       }
     }
