@@ -38,6 +38,7 @@ header {
     line-height: 3;
     transition: 0.3s;
     &:hover {
+      color: #89c997;
       transform: scale(1.5);
     }
   }
@@ -62,6 +63,7 @@ header {
             margin-right: 0px;
           }
           &:hover {
+            color: #89c997;
             transform: scale(1.5);
           }
       }

@@ -108,12 +108,15 @@ export default {
 </script>
 
 <style lang="scss">
+#about {
+  margin: 0 auto;
+  width: 1600px;
+}
+
 .about-inner {
   color: #696969;
   display: flex;
   justify-content: space-around;
-  margin: 0 auto;
-  width: 1600px;
   padding-bottom: 40px;
 
   .weight {
