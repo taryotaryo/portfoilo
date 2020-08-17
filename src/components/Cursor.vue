@@ -1,10 +1,27 @@
 <template>
   <div>
     <!--body直下にカーソルとなる要素を配置-->
-    <p id="cursor" v-bind:class="{ active: onViewActive }" v-bind:style="{ opacity: opacityA, top: mouseY + 'px', left: mouseX + 'px' }"></p>
+    <p id="cursor" v-bind:class="{ active: onViewActive }"
+    v-bind:style="{
+      opacity: opacityA,
+      top: mouseY + 'px',
+      left: mouseX + 'px'
+      }">
+    </p>
     <!--body直下にマウスストーカーとなる要素を配置-->
-    <div v-if="!onViewActive" id="stalker" v-bind:style="{ opacity: opacityB, transform: 'translate('+posX+'px,'+posY+'px)' }"></div>
-    <div v-else-if="onViewActive" v-bind:class="{ active: onViewActive }" id="stalker" v-bind:style="{ zIndex: zIndex, opacity: opacityB, transform: 'translate('+posX+'px,'+posY+'px) scale(2)' }">{{hoverMessage}}</div>
+    <div v-if="!onViewActive" id="stalker"
+    v-bind:style="{
+      opacity: opacityB,
+      transform: 'translate('+posX+'px,'+posY+'px)'
+      }">
+    </div>
+    <div v-else-if="onViewActive" v-bind:class="{ active: onViewActive }" id="stalker"
+    v-bind:style="{
+      zIndex: zIndex,
+      opacity: opacityB,
+      transform: 'translate('+posX+'px,'+posY+'px) scale(2)'
+      }">{{hoverMessage}}
+    </div>
   </div>
 </template>
 
@@ -34,11 +51,15 @@ export default {
     getCursorCoordinate: function (event) {
       this.mouseX = event.pageX
       this.mouseY = event.pageY
-      this.opacityA = 1
+      if (this.opacityA === 0) {
+        this.opacityA = 1
+      }
       setTimeout(function () {
         this.posX = `${this.mouseX - 20}`
         this.posY = `${this.mouseY - 24}`
-        this.opacityB = 1
+        if (this.opacityB === 0) {
+          this.opacityB = 1
+        }
       }.bind(this), 100)
     },
     onView: function () {
@@ -78,6 +99,7 @@ export default {
 #cursor.active{
   background-color: transparent;
 }
+
 #stalker{
   position: relative;
   background-color: blue;
@@ -87,12 +109,13 @@ export default {
   z-index: 2;/*一番手前に来るように*/
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   background-size: contain;
-  background-color: #fdfe00;
+  background-color: #89c997;
   opacity: 0;/*開いた瞬間非表示*/
   transition: transform 0.1s;
 }
 #stalker.active{
-  background-color: #89c997;
+  background-color: #ffefd5;
+  color: #89c997;
   line-height: 40px;
   text-align: center;
   font-size: 14px;
