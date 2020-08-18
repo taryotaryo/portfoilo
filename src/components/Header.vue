@@ -22,7 +22,7 @@ export default {
       bus.$emit('bus-event-onNav')
     },
     mouseLeave: function () {
-      bus.$emit('bus-event-offNav')
+      bus.$emit('bus-event-off')
     }
   }
 }

@@ -19,7 +19,7 @@
     v-bind:style="{
       zIndex: zIndex,
       opacity: opacityB,
-      transform: 'translate('+posX+'px,'+posY+'px) scale(2)'
+      transform: 'translate('+posX+'px,'+posY+'px)'+scale
       }">{{hoverMessage}}
     </div>
   </div>
@@ -38,14 +38,19 @@ export default {
       opacityB: 0,
       onViewActive: false,
       hoverMessage: '',
-      zIndex: 2
+      zIndex: 2,
+      scale: 'scale(2)'
     }
   },
   created: function () {
-    bus.$on('bus-event-onView', this.onView)
-    bus.$on('bus-event-offView', this.offView)
-    bus.$on('bus-event-onNav', this.onNav)
-    bus.$on('bus-event-offNav', this.offView)
+    // ホバー/非ホバー時のトリガー
+    bus.$on('bus-event-onNav', this.onNav) // 拡大のみ
+    bus.$on('bus-event-onView', this.onView) // 拡大 + 文字「view」
+    bus.$on('bus-event-onInput', this.onInput) // 拡大 + 文字「input」
+    bus.$on('bus-event-off', this.off) // 縮小(元に戻る)
+    // フォーカス/非フォーカス時のトリガー
+    bus.$on('bus-event-focusInput', this.focusInput) // 縮小して消える
+    bus.$on('bus-event-blurInput', this.blurInput) // 縮小(元に戻る)
   },
   methods: {
     getCursorCoordinate: function (event) {
@@ -62,18 +67,31 @@ export default {
         }
       }.bind(this), 100)
     },
+    // ホバーの動作
+    onNav: function () {
+      this.onViewActive = true
+      this.scale = 'scale(2)'
+      this.hoverMessage = ''
+      this.zIndex = -1
+    },
     onView: function () {
       this.onViewActive = true
+      this.scale = 'scale(2)'
       this.hoverMessage = 'view'
       this.zIndex = 2
     },
-    onNav: function () {
+    onInput: function () {
       this.onViewActive = true
-      this.zIndex = -1
-      this.hoverMessage = ''
+      this.scale = 'scale(2)'
+      this.hoverMessage = 'input'
+      this.zIndex = 2
     },
-    offView: function () {
+    off: function () {
       this.onViewActive = false
+    },
+    // クリック時の動作
+    focusInput: function () {
+      this.scale = 'scale(0)'
     }
   }
 }
