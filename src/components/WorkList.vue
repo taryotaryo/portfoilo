@@ -30,7 +30,7 @@ export default {
       bus.$emit('bus-event-onView')
     },
     mouseLeave: function () {
-      bus.$emit('bus-event-offView')
+      bus.$emit('bus-event-off')
     }
   }
 }

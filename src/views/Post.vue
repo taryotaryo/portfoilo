@@ -44,11 +44,11 @@ export default {
     mouseEnter: function () {
       bus.$emit('bus-event-onView')
     },
-    mouseLeave: function () {
-      bus.$emit('bus-event-offView')
-    },
     mouseEnter2: function () {
       bus.$emit('bus-event-onNav')
+    },
+    mouseLeave: function () {
+      bus.$emit('bus-event-off')
     }
   }
 }
