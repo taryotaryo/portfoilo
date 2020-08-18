@@ -1,13 +1,13 @@
 <template>
     <header>
       <div class="header-inner">
-        <div class="header-home" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Home</div>
+        <router-link to="/"><div class="header-home" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Home</div></router-link>
         <div class="header-list">
             <ul class="header-lists">
-                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</li>
-                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</li>
-                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Posts</li>
-                <li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li>
+                <router-link to="/about"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</li></router-link>
+                <router-link to="/work"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</li></router-link>
+                <router-link to="/post"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Posts</li></router-link>
+                <router-link to="/contact"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li></router-link>
             </ul>
         </div>
       </div>
@@ -33,6 +33,11 @@ export default {
 header {
   font-weight: bold;
   font-size: 26px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 
   .header-home{
     line-height: 3;

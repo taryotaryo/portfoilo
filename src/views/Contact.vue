@@ -5,7 +5,7 @@
       <form action="">
         <input type="text" placeholder="Name" name="name" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()">
         <input type="email" placeholder="Email" name="email" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()">
-        <textarea placeholder="Message" name="message" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()"></textarea>
+        <textarea placeholder="Message" name="message" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()"></textarea>
         <input type="submit" value="Send">
       </form>
     </div>

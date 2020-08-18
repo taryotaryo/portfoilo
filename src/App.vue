@@ -2,7 +2,9 @@
   <div id="app" v-on:mousemove="callChildMethod()">
     <v-cursor ref="child"></v-cursor>
     <v-header v-on:mouseenter="callChildMethod2()"></v-header>
+    <transition>
     <router-view></router-view>
+    </transition>
     <v-footer></v-footer>
   </div>
 </template>
@@ -31,6 +33,16 @@ export default {
 </script>
 
 <style lang="scss">
+.v-enter, .v-leave-to {
+    opacity: 0;
+}
+.v-enter-to, .v-leave {
+    opacity: 1;
+}
+.v-enter-active, .v-leave-active {
+    transition: opacity 300ms;
+}
+
 body {
   background-color: #dcdcdc;
   cursor: none;
