@@ -1,7 +1,7 @@
 <template>
   <div id="app" v-on:mousemove="callChildMethod()">
     <v-cursor ref="child"></v-cursor>
-    <v-header v-on:mouseenter="callChildMethod2()"></v-header>
+    <v-header></v-header>
     <transition>
     <router-view></router-view>
     </transition>
@@ -24,9 +24,6 @@ export default {
   methods: {
     callChildMethod () {
       this.$refs.child.getCursorCoordinate(event)
-    },
-    callChildMethod2 () {
-      this.$refs.child.cursorHover()
     }
   }
 }
@@ -44,6 +41,7 @@ export default {
 }
 
 body {
+  overflow-y: scroll;
   background-color: #dcdcdc;
   cursor: none;
   position: relative;

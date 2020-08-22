@@ -25,7 +25,7 @@ export default {
     font-size: 60px;
     letter-spacing: 0.2em;
     margin: 20px auto;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     text-align: left;
 
     &:first-letter {

@@ -12,7 +12,7 @@ export default {
       bus.$emit('bus-event-onNav')
     },
     mouseLeave: function () {
-      bus.$emit('bus-event-offNav')
+      bus.$emit('bus-event-off')
     }
   }
 }
@@ -22,5 +22,6 @@ export default {
 footer p {
     color: #fff;
     text-align: center;
+    padding-bottom: 40px;
 }
 </style>
