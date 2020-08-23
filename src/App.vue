@@ -47,7 +47,7 @@ body {
   position: relative;
 }
 
-body a:hover{
+body a:hover {
   cursor: none;/*aタグホバーのカーソルも非表示に*/
 }
 
