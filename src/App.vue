@@ -2,8 +2,8 @@
   <div id="app" v-on:mousemove="callChildMethod()">
     <v-cursor ref="child"></v-cursor>
     <v-header></v-header>
-    <transition>
-    <router-view></router-view>
+    <transition mode="out-in">
+      <router-view></router-view>
     </transition>
     <v-footer></v-footer>
   </div>
@@ -37,7 +37,7 @@ export default {
     opacity: 1;
 }
 .v-enter-active, .v-leave-active {
-    transition: opacity 300ms;
+    transition: opacity 500ms;
 }
 
 body {
