@@ -31,17 +31,24 @@ export default {
 
 <style lang="scss">
 header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 140px;
+  margin: 0 auto;
   font-weight: bold;
   font-size: 26px;
 
   a {
+    cursor: none;
     color: #fff;
     text-decoration: none;
   }
 
   .header-home{
-    line-height: 3;
     transition: 0.3s;
+    line-height: 140px;
+
     &:hover {
       color: #89c997;
       transform: scale(1.5);
@@ -57,13 +64,15 @@ header {
     .header-lists {
       list-style: none;
       display: flex;
+      margin: 0;
 
       li {
         cursor: none;
         border-radius: 5px;
-        padding: 10px;
         margin-right: 50px;
         transition: 0.3s;
+        line-height: 140px;
+
           &:nth-of-type(4){
             margin-right: 0px;
           }

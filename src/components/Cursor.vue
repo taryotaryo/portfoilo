@@ -100,16 +100,16 @@ export default {
 <style>
 /*カーソル*/
 #cursor{
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 8px;
   height: 8px;
-  margin: -4px 0 0 -4px;
+  margin: -7px 0 0 -4px;
   border-radius: 50%;
   z-index: 3;/*一番手前に来るように*/
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
-  transition: transform 0.1s;
+  transition: transform 180ms;
   opacity: 0;/*開いた瞬間非表示*/
   background-color: #000;
 }
@@ -119,7 +119,7 @@ export default {
 }
 
 #stalker{
-  position: relative;
+  position: absolute;
   background-color: blue;
   border-radius: 50%;
   width: 40px;
@@ -127,9 +127,9 @@ export default {
   z-index: 2;/*一番手前に来るように*/
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   background-size: contain;
-  background-color: #89c997;
+  background-color: #ffefd5;
   opacity: 0;/*開いた瞬間非表示*/
-  transition: transform 0.1s;
+  transition: transform 180ms;
 }
 #stalker.active{
   background-color: #ffefd5;
