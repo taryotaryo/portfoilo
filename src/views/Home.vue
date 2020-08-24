@@ -1,23 +1,35 @@
 <template>
   <div id="home">
       <div class="home-container">
-        <h1 class="home-message"><span>W</span>elcome <span>T</span>o <span>M</span>y <span>P</span>orofolio</h1>
+        <h1 class="home-message" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span>W</span>elcome <span>T</span>o <span>M</span>y <span>P</span>ortfolio</h1>
       </div>
+      <div class="moon"></div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import { bus } from '../main.js'
 export default {
+  methods: {
+    mouseEnter: function () {
+      bus.$emit('bus-event-onNav')
+    },
+    mouseLeave: function () {
+      bus.$emit('bus-event-off')
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 #home {
+  height: 100vh;
   .home-container {
-    padding-top: 330px;
-    padding-bottom: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
     text-align: center;
     .home-message{
       font-size: 100px;

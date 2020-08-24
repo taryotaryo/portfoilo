@@ -19,9 +19,14 @@ export default {
 </script>
 
 <style>
+footer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 footer p {
     color: #fff;
     text-align: center;
-    padding-bottom: 40px;
 }
 </style>

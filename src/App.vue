@@ -42,7 +42,7 @@ export default {
 
 body {
   overflow-y: scroll;
-  background-color: #dcdcdc;
+  background-color: #2C2932;
   cursor: none;
   position: relative;
 }
@@ -58,7 +58,7 @@ p {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: fs_trumanregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
