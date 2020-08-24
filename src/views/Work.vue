@@ -20,8 +20,11 @@ export default {
 </script>
 
 <style lang="scss">
-.work-inner {
-  width: 1600px;
-  margin: 0 auto;
+#work {
+  padding-bottom: 50px;
+    .work-inner {
+      width: 1600px;
+      margin: 0 auto;
+    }
 }
 </style>

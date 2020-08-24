@@ -142,6 +142,7 @@ export default {
 <style lang="scss">
 #about {
   margin: 0 auto;
+  padding-bottom: 50px;
   width: 1600px;
 }
 
@@ -158,7 +159,6 @@ li {
   .frame {
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0px 8px 8px #cccccc;
     padding: 20px 20px;
     margin-bottom: 20px;
   }
