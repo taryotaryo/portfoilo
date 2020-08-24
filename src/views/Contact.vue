@@ -34,50 +34,52 @@ export default {
 </script>
 
 <style lang="scss">
-$blue: #4784AD;
+#contact {
+  padding-bottom: 50px;
+  .contact-inner {
+    width: 1600px;
+    margin: 0 auto;
 
-.contact-inner {
-  width: 1600px;
-  margin: 0 auto;
+    form {
+    width: 50%;
+    margin: 6% auto;
+    min-width: 9rem;
 
-  form {
-  width: 50%;
-  margin: 6% auto;
-  min-width: 9rem;
+      input, textarea {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background: #f9f9f9;
+        color: darken(#f9f9f9, 40%);
+        cursor: none;
 
-    input, textarea {
-      width: 100%;
-      max-width: 100%;
-      border: none;
-      margin: 0.5rem 0;
-      padding: 0.5rem 1rem;
-      border-radius: 0.3rem;
-      background: #f9f9f9;
-      color: darken(#f9f9f9, 40%);
-      cursor: none;
-
-        &[type=submit] {
-          background: #89c997;
-          color: #fff;
-          width: auto;
-        }
-
-        &::placeholder {
-          color: darken(#f9f9f9, 40%);
-        }
-
-        &.error {
-          background: #AD4747;
-          color: #fff;
-          &::placeholder {
-            color: darken(#AD4747, 60%);
+          &[type=submit] {
+            background: #89c997;
+            color: #fff;
+            width: auto;
           }
-      }
-    }
 
-    textarea {
-      height: 10rem;
+          &::placeholder {
+            color: darken(#f9f9f9, 40%);
+          }
+
+          &.error {
+            background: #AD4747;
+            color: #fff;
+            &::placeholder {
+              color: darken(#AD4747, 60%);
+            }
+        }
+      }
+
+      textarea {
+        height: 10rem;
+      }
     }
   }
 }
+
 </style>

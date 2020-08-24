@@ -122,7 +122,6 @@ export default {
   width: 80%;
   background-color: #f9f9f9;
   border-radius: 5px;
-  box-shadow: 8px 8px 8px 8px #cccccc;
   color: #222;
   margin: 0 auto;
   margin-bottom: 80px;
@@ -133,7 +132,6 @@ export default {
     top: -40px;
     left: -40px;
     background-color: #89c997;
-    box-shadow: 8px 8px 8px #cccccc;
     color: #fff;
     display: inline;
     font-size: 30px;

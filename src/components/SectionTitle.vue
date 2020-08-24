@@ -24,7 +24,7 @@ export default {
     display: inline-block;
     font-size: 60px;
     letter-spacing: 0.2em;
-    margin: 60px auto 60px auto;
+    margin: 150px auto 60px auto;
     text-align: left;
 
     &:first-letter {
