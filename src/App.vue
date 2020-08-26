@@ -42,7 +42,7 @@ export default {
 
 body {
   overflow-y: scroll;
-  background-color: #2C2932;
+  background-color: #111;
   cursor: none;
   position: relative;
 }
@@ -53,7 +53,6 @@ body a:hover {
 
 p {
   margin: 0;
-  color: #696969;
   line-height: 2;
 }
 
