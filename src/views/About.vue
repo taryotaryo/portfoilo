@@ -2,66 +2,125 @@
   <div id="about">
     <section-title></section-title>
     <div class="about-inner">
-      <div class="about-left">
-        <div class="profile frame">
-          <h2 class="about-title">Profile</h2>
-          <div class="profile-area">
+      <div class="profile section-padding flex">
+        <div class="toc">
+          <h2>WHO AM I</h2>
+        </div>
+        <div class="content">
+          <div class="content-profile">
+            <div class="description">
+              <h3>Ryota Iwasaki</h3>
+              <p>都内のSES企業でチームリーダーとして働いています。人に使ってもらえるものを自分で作りたいと思い、2019年12月から独学でプログラミング学習を開始しました。現在はフロントエンドエンジニアを目指して転職活動中です。</p>
+              <div class="like">
+                <h3>Likes</h3>
+                <p><span v-for="(like) in likes" v-bind:key="like">{{ like }}</span></p>
+              </div>
+              <div class="account">
+                <h3>Acounts</h3>
+                <a href="https://github.com/taryotaryo" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><font-awesome-icon v-bind:icon="['fab', 'github']" /></a>
+                <a href="https://qiita.com/KUMA_TR" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><font-awesome-icon v-bind:icon="['fab', 'quora']" /></a>
+                <a href="https://twitter.com/KUMA90473134" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><font-awesome-icon v-bind:icon="['fab', 'twitter']" /></a>
+                <a href="mailto:yarot.wsaiaik@outlook.jp" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><font-awesome-icon v-bind:icon="['fas', 'envelope']" /></a>
+              </div>
+            </div>
             <div class="profile-imageArea">
               <img src="../assets/profile.png" alt="プロフィール画像">
-            </div>
-            <div class="profile-description">
-              <p>くまです。都内のSES企業でチームリーダーとして働いています。人に使ってもらえるものを自分で作りたいと思い、2019年12月から独学でプログラミング学習を開始しました。現在はフロントエンドエンジニアを目指して転職活動中です。</p>
-            </div>
-          </div>
-          <div class="myacounts">
-            <a href="https://github.com/taryotaryo" class="github myacount" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span><font-awesome-icon v-bind:icon="['fab', 'github']" /></span><span>github</span></a>
-            <a href="https://qiita.com/KUMA_TR" class="qiita myacount" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span><font-awesome-icon v-bind:icon="['fab', 'quora']" /></span><span>Qiita</span></a>
-            <a href="https://twitter.com/KUMA90473134" class="twitter myacount" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span><font-awesome-icon v-bind:icon="['fab', 'twitter']" /></span><span>Twitter</span></a>
-            <a href="mailto:yarot.wsaiaik@outlook.jp" class="mail myacount" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span><font-awesome-icon v-bind:icon="['fas', 'envelope']" /></span><span>Mail</span></a>
-          </div>
-        </div>
-        <div class="techskill frame">
-          <h2 class="about-title">TechSkill</h2>
-          <div class="lists-style">
-            <span class="list-style" v-for="(techskill, index) in techSkills" v-bind:key="index">{{ techskill }}</span>
-          </div>
-        </div>
-        <div class="about-left-bottom">
-          <div class="otherskill frame">
-            <h2 class="about-title">OtherSkill</h2>
-            <div class="lists-style">
-              <span class="list-style" v-for="(otherSkill, index) in otherSkills" v-bind:key="index">{{ otherSkill }}</span>
-            </div>
-          </div>
-          <div class="like frame">
-            <h2 class="about-title">Like</h2>
-            <div class="lists-style">
-              <span class="list-style" v-for="(like, index) in likes" v-bind:key="index">{{ like }}</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="about-right">
-        <div class="history frame">
-          <h2 class="about-title">History</h2>
-          <p>2017年6月</p>
-          <p>SES企業に未経験でバイリンガルエンジニアとして入社。インフラのモニタリングや翻訳業務に携わる。<strong>各種手順書や業務ツールに手早くアクセスできる資料をエクセルで先輩へのヒアリングし作成。</strong>その結果、業務を早く覚えることができ、先輩全員から太鼓判を押されるようになりました。</p>
-          <p>2018年8月</p>
-          <p>LinuCレベル2を4カ月で取得。その実績や面倒見のよさ、それまでの仕事を評価され、<strong>1年で現場のチームリーダーへの抜擢</strong>。新しい運用保守業務のプロジェクトの巻取り業務を任されました。</p>
-          <p>2019年1月</p>
-          <p>現場での活躍とコミュニケーション能力を評価され、<strong>同期の中では最速で主任に昇格。</strong>部下のマネジメント業務や現場の業務改善に取組みました。手順書や監視業務の見直しを行い、<strong>監視業務の稼働を30%稼働削減を実現。</strong></p>
-          <p>2019年12月</p>
-          <p>誰かの制作したアプリやをツールを使って業務に取り組むなかで、ふと「このままで大丈夫なんだろうか」という不安を感じ、徐々にその感情は「人に使ってもらえるものを自分で作りたい」に変化。特に使いやすいUIの作成に携わりたいと思い、<strong>フロントエンドエンジニアを志し、独学でプログラミング学習を開始しました。</strong></p>
-          <p>{{ now }}</p>
-          <p>Progate、ドットインストール、Udemy、30daysトライアルを活用し以下のスキルを得ました。<br>※毎日欠かさず勉強を継続し、日々のスキルアップを行っております</p>
-          <ul>
-            <li>作品を作れるレベルのフロントエンド技術(HTML、CSS / SCSS、Bootstrap、Javascript、jQuery、vue.js、デベロッパーツール)</li>
-            <li>基礎レベルのバックエンド技術(PHP、Ruby、Ruby on Rails、SQL、WordPress)</li>
-            <li>実業務を意識したチーム開発ツールへの理解(Git、Github、Github Flow)</li>
-            <li>デプロイ経験(Xserver、Github Pages、Firebase)</li>
-            <li>ローカル開発技術(Visual Studio Code、Vue CLI)</li>
+      <div class="skill section-padding flex">
+        <div class="toc">
+          <h2>SKILL</h2>
+        </div>
+        <div class="content">
+          <div class="skill-graph">
+            <div class="frontend">
+              <p class="type">Frontend</p>
+              <ul>
+                <li v-for="(frontSkill) in frontSkills" v-bind:key="frontSkill">
+                  <p>{{ frontSkill }}</p>
+                  <div class="bar"></div>
+                </li>
+              </ul>
+            </div>
+            <div class="section-bar"></div>
+            <div class="backend">
+              <p class="type">Backend</p>
+              <ul>
+                <li v-for="(backEndSkill) in backEndSkills" v-bind:key="backEndSkill">
+                  <div class="bar"></div>
+                  <p>{{ backEndSkill }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="ohter-block">
+            <p class="type">Others</p>
+            <ul class="tool">
+              <p>Tools</p>
+              <li v-for="(tool) in tools" v-bind:key="tool">{{ tool }}</li>
+            </ul>
+            <ul class="certification">
+              <p>Certifications</p>
+              <li v-for="(certification) in certifications" v-bind:key="certification">{{ certification }}</li>
+            </ul>
+            <ul class="businesse">
+              <p>Business Skills</p>
+              <li v-for="(businesse) in businesses" v-bind:key="businesse">{{ businesse }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="history section-padding flex">
+        <div class="toc">
+          <h2>HISTORY</h2>
+        </div>
+        <div class="content">
+          <ul class="timeline">
+            <li>
+              <p class="timeline-date">2017年6月</p>
+              <div class="timeline-content">
+                <h3>SES企業に未経験でバイリンガルエンジニアとして入社</h3>
+                <p>インフラのモニタリングや翻訳業務に携わる。<strong>各種手順書や業務ツールに手早くアクセスできる資料をエクセルで先輩へのヒアリングし作成。</strong>その結果、業務を早く覚えることができ、先輩全員から太鼓判を押されるようになりました。</p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">2018年8月</p>
+              <div class="timeline-content">
+                <h3>現場のチームリーダーへ昇進</h3>
+                <p>LinuCレベル2を4カ月で取得。その実績や面倒見のよさ、それまでの仕事を評価され、<strong>1年で現場のチームリーダーへの抜擢</strong>。新しい運用保守業務のプロジェクトの巻取り業務を任されました。</p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">2019年1月</p>
+              <div class="timeline-content">
+                <h3>主任に昇格</h3>
+                <p>現場での活躍とコミュニケーション能力を評価され、<strong>同期の中では最速で主任に昇格。</strong>部下のマネジメント業務や現場の業務改善に取組みました。手順書や監視業務の見直しを行い、<strong>監視業務の稼働を30%稼働削減を実現。</strong></p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">2019年12月</p>
+              <div class="timeline-content">
+                <h3>プログラミング勉強開始</h3>
+                <p>誰かの制作したアプリやをツールを使って業務に取り組むなかで、ふと「このままで大丈夫なんだろうか」という不安を感じ、徐々にその感情は「人に使ってもらえるものを自分で作りたい」に変化。特に使いやすいUIの作成に携わりたいと思い、<strong>フロントエンドエンジニアを志し、独学でプログラミング学習を開始しました。</strong></p>
+              </div>
+            </li>
+            <li>
+              <p class="timeline-date">{{ now }}</p>
+              <div class="timeline-content">
+                <h3>現在</h3>
+                <p>Progate、ドットインストール、Udemy、30daysトライアルを活用し以下のスキルを得ました。</p>
+                <p>※毎日欠かさず勉強を継続し、日々のスキルアップを行っております</p>
+                <p>・作品を作れるレベルのフロントエンド技術(HTML、CSS / SCSS、Bootstrap、Javascript、jQuery、vue.js、デベロッパーツール)</p>
+                <p>・基礎レベルのバックエンド技術(PHP、Ruby、Ruby on Rails、SQL、WordPress)</p>
+                <p>・実業務を意識したチーム開発ツールへの理解(Git、Github、Github Flow)</p>
+                <p>・デプロイ経験(Xserver、Github Pages、Firebase)</p>
+                <p>・ローカル開発技術(Visual Studio Code、Vue CLI)</p>
+                <p>現在、フロントエンドエンジニアを目指し転職活動中です。</p>
+              </div>
+            </li>
           </ul>
-          <p>現在、フロントエンドエンジニアを目指し転職活動中です。</p>
         </div>
       </div>
     </div>
@@ -78,36 +137,41 @@ export default {
   data: function () {
     return {
       aboutTitle: true,
-      techSkills: [
+      frontSkills: [
         'HTML',
-        'CSS',
-        'SCSS',
+        'CSS(SCSS)',
         'Bootstrap',
         'JavaScript',
         'jQuery',
-        'Developer Tools',
         'Vue.js',
         'Vue CLI',
-        'Webpack',
+        'Webpack'
+      ],
+      backEndSkills: [
         'PHP',
         'Ruby',
         'Ruby on rails',
         'SQL',
         'WordPress',
+        'Firebase'
+      ],
+      tools: [
         'Git',
         'Github',
-        'Firebase',
+        'Developer Tools',
         'Visual Studio Code'
       ],
-      otherSkills: [
+      certifications: [
+        'LinuC1',
+        'LinuC2',
+        'CCNA',
+        'TOEIC780'
+      ],
+      businesses: [
         'Leader experience',
         'Writing Ability',
         'Infrastructure Operation',
-        'translation',
-        'TOEIC780',
-        'LinuC1',
-        'LinuC2',
-        'CCNA'
+        'translation'
       ],
       likes: [
         'ギター',
@@ -126,11 +190,11 @@ export default {
   },
   mounted: function () {
     const now = new Date()
-    this.now = now.getFullYear() + '年' + (now.getMonth() + 1) + '月 現在'
+    this.now = now.getFullYear() + '年' + (now.getMonth() + 1) + '月'
   },
   methods: {
     mouseEnter: function () {
-      bus.$emit('bus-event-onView')
+      bus.$emit('bus-event-onNav')
     },
     mouseLeave: function () {
       bus.$emit('bus-event-off')
@@ -143,130 +207,228 @@ export default {
 #about {
   margin: 0 auto;
   padding-bottom: 50px;
-  width: 1600px;
-}
 
-li {
-  line-height: 1.8;
-}
-
-.about-inner {
-  color: #696969;
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 40px;
-
-  .frame {
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px 20px;
-    margin-bottom: 20px;
+// 共通設定
+  .section-padding {
+  padding-top: 80px;
+  padding-bottom: 80px;
   }
 
-  .about-title {
-    background-color: #89c997;
-    border-radius: 5px;
-    color: #fff;
-    display: inline-block;
-    padding: 5px 20px 5px 30px;
-    position: relative;
-    font-size: 30px;
-    margin-top: 0;
+  .flex {
+    display: flex;
+  }
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 10px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #fff;
+  .toc {
+    width: 20%;
+    h2 {
+      position: relative;
+      font-size: 24px;
+      letter-spacing: 1rem;
+      text-indent: 1rem;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      &:before {
+        position: absolute;
+        top: 40px;
+        height: 1px;
+        width: 280px;
+        content: '';
+        background-color: #fff;
+      }
     }
   }
-
-  .lists-style {
-    display: flex;
-    flex-wrap: wrap;
+  h2, h3, a {
+  color: #fff;
+  cursor: none;
+  }
+  p {
+    color: darken(#fff, 15%);
+    cursor: none;
   }
 
-  .list-style {
-    background-color: #cd5c5c;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    padding: 8px 10px;
-    margin-right: 8px;
-    margin-bottom: 8px;
+  .content {
+    width: 80%;
   }
 
-  .about-left {
-    width: 47%;
+  .about-inner {
+    width: 100%;
 
-      .myacounts {
-        font-size: 30px;
-        text-align: right;
+    .profile {
 
-        .myacount {
-          margin-right: 40px;
-          text-decoration: none;
-          transition: 0.3s;
-          &:hover {
-            color: #89c997;
+      .content-profile {
+        .description {
+          h3 {
+            font-size: 40px;
+          }
+          p {
+            width: 50%;
+          }
+          .like {
+            margin-top: 20px;
+            h3 {
+              font-size: 20px;
+            }
+            span {
+              margin-right: 10px;
+            }
+          }
+          .account {
+            margin-top: 30px;
+            color: #fff;
+            h3 {
+              font-size: 20px;
+            }
+            a {
+              position: relative;
+              margin-right: 40px;
+              font-size: 30px;
+              text-decoration: none;
+              transition: .3s;
+              &:hover:before {
+                content: 'Click';
+                display: block;
+                position: absolute;
+                top: -16px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 16px;
+                font-weight: bold;
+              }
+
+              &:first-child:hover{
+                color: #171515;
+              }
+              &:nth-child(2):hover{
+                color: #55C500;
+              }
+              &:nth-child(3):hover{
+                color: #00acee;
+              }
+              &:last-child:hover{
+                color: #487c38;
+              }
+            }
+          }
+        }
+        .profile-imageArea {
+          text-align: right;
+          margin-right: 300px;
+          img {
+            width: 200px;
           }
         }
       }
-
-      .github {
-        color: #171515;
-      }
-
-      .qiita {
-        color: #55C500;
-      }
-
-      .twitter {
-        color: #00acee;
-      }
-
-      .mail {
-        color: #487c38;
-      }
-
-    .profile-area {
-      display: flex;
-
-      img {
-        width: 100px;
-        margin-right: 50px;
-        height: auto;
-      }
     }
-
-    .about-left-bottom {
-      display: flex;
-      margin: 0 auto;
-      justify-content: space-between;
-      width: 100%;
-
-      .otherskill, .like {
-        width: 43%;
+    .skill {
+      .bar {
+          width:  20px;
+          height: 100px;
+          margin:  0 auto;
+          background-color: #fff;
       }
-    }
-  }
-
-  .about-right {
-    width: 47%;
-
-    .history {
-      p {
-        &:nth-child(even) {
+      li {
+        display:  inline-block;
+        width:  100px;
+        font-size: 16px;
+        text-align:  center;
+      }
+      ul {
+        font-size: 0; // li要素をボーダーにくっつける
+      }
+      .skill-graph {
+        margin-top: 200px;
+        margin-bottom: 200px;
+        .type {
+          position: absolute;
+          font-size: 24px;
           font-weight: bold;
-          font-size: 20px;
+          letter-spacing: 0.8rem;
         }
-        &:nth-child(odd) {
-          text-indent: 1rem;
+        .frontend {
+          position: relative;
+          color: #fff;
+          p {
+            color: #fff;
+          }
+          .type {
+            top: 50%;
+            right: 80px;
+            transform: translateY(-50%);
+          }
+        }
+        .backend {
+          position: relative;
+          .type {
+            top: 50%;
+            right: 96px;
+            transform: translateY(-50%);
+            color: #666;
+          }
+          p {
+            color: #666;
+          }
+          .bar {
+            background-color: #666;
+          }
+        }
+        .section-bar {
+          height: 1px;
+          width: 100%;
+          background-color: #fff;
+        }
+      }
+      .ohter-block {
+        .type {
+          position: absolute;
+          right: 135px;
+          color: darken(#fff, 15%);
+          font-size: 24px;
+          font-weight: bold;
+          letter-spacing: 0.8rem;
+        }
+        display: flex;
+        ul {
+          width: 20%;
+          font-size: 20px;
+          li {
+            width: 100%;
+            display: block;
+            color: darken(#fff, 15%);
+            text-align: left;
+          }
+        }
+      }
+    }
+    .history {
+      .timeline {
+        margin-top: 200px;
+        list-style: none;
+        li {
+          margin-bottom: 60px;
+          overflow: hidden;
+          margin: 0;
+          position: relative;
+        }
+        .timeline-date {
+          width: 110px;
+          float: left;
+          margin-top: 20px;
+        }
+        .timeline-content {
+          width: 75%;
+          float: left;
+          border-left: 3px #fff solid;
+          padding-left: 30px;
+          &:before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #89c997;
+            position: absolute;
+            left: 106px;
+            top: 24px;
+            border-radius: 100%;
+          }
         }
       }
     }
