@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div class="worklist" v-for="workList in workLists" v-bind:key="workList">
-      <h2 class="worklist-title">{{ workList.title }}</h2>
+    <div class="worklist section-padding flex" v-for="workList in workLists" v-bind:key="workList">
+      <div class="toc">
+        <h2>{{ workList.toc }}</h2>
+      </div>
       <div class="worklist-section">
         <div class="worklist-left">
           <a v-bind:href="workList.url" class="worklist-movie" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">
@@ -35,7 +37,7 @@ export default {
         {
           image: require('../assets/portfolio_movie.mp4'),
           url: 'https://ta-ryo.com/lp',
-          title: 'LP風ポートフォリオ',
+          toc: '01',
           techs: ['HTML', 'CSS', 'hover.css', 'Javascript(jQuery)', 'Xserver'],
           summaries: [
             '縦長のシングルページで制作したポートフォリオサイト'
@@ -50,7 +52,7 @@ export default {
         {
           image: require('../assets/portfolio_janken.mp4'),
           url: 'https://ta-ryo.com/lp',
-          title: 'じゃんけんアプリ',
+          toc: '02',
           techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'Github Pages'],
           summaries: [
             'vue.jsで制作したじゃんけんアプリ',
@@ -68,7 +70,7 @@ export default {
         {
           image: require('../assets/this_portfolio.mp4'),
           url: '#',
-          title: '自己紹介ポートフォリオ',
+          toc: '03',
           techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'npm', 'Firebase'],
           summaries: [
             'vue.jsで作成したポートフォリオサイト',
@@ -87,7 +89,7 @@ export default {
         {
           image: require('../assets/portofolio_blog.mp4'),
           url: 'https://ta-ryo.com/',
-          title: 'WordPressの自作テーマ',
+          toc: '04',
           techs: ['HTML', 'SCSS', 'Javascript(jQuery)', 'PHP', 'WordPress', 'Xserver'],
           summaries: [
             'はじめて作成したWordPressテーマ',
@@ -116,45 +118,56 @@ export default {
 </script>
 
 <style lang="scss">
+// 共通設定
+.section-padding {
+padding-top: 80px;
+padding-bottom: 80px;
+}
+
+.flex {
+  display: flex;
+}
+
+p, li {
+  color: darken(#fff, 15%);
+}
+
 .worklist {
-  position: relative;
   margin-bottom: 30px;
-  width: 80%;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  color: #222;
-  margin: 0 auto;
+  color: #fff;
   margin-bottom: 80px;
-  padding: 80px 30px;
-
-  .worklist-title {
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    background-color: #89c997;
-    color: #fff;
-    display: inline;
-    font-size: 30px;
-    margin: 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 40px;
-    width: 400px;
-    border-radius: 5px;
+  .toc {
+    width: 20%;
+    h2 {
+      position: relative;
+      font-size: 24px;
+      letter-spacing: 1rem;
+      text-indent: 1rem;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      &:before {
+        position: absolute;
+        top: 40px;
+        height: 1px;
+        width: 180px;
+        content: '';
+        background-color: #fff;
+      }
+    }
   }
-
   .worklist-section {
     display: flex;
+    margin-top: 60px;
+    width: 80%;
 
     .worklist-left {
-      width: 60%;
-      text-align: center;
+      width: 40%;
+      text-align: left;
       .worklist-movie {
         video {
-          box-shadow: 8px 8px 8px #cccccc;
           margin-top: 20px;
           transition: 0.5s;
-          width: 95%;
+          width: 100%;
             &:hover {
               opacity: 0.8;
           }
@@ -162,32 +175,21 @@ export default {
       }
     }
     .worklist-right {
+      margin-left: 50px;
       width: 50%;
-      margin-left: 20px;
-      text-align: left;
-
       h3 {
         font-size: 20px;
         margin-top: 20px;
         margin-bottom: 20px;
       }
-
       p, li{
-        color: #222;
         font-size: 18px;
         line-height: 1.6rem;
       }
-
       .worklist-icon {
-        color: #89c997;
         margin-right: 1rem;
       }
-
       .worklist-tech {
-        background-color: #cd5c5c;
-        border-radius: 5px;
-        color: #fff;
-        font-weight: bold;
         padding: 8px 10px;
         margin-right: 8px;
         margin-bottom: 8px;
