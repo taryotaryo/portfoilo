@@ -1,7 +1,7 @@
 <template>
   <div id="work">
-    <div class="work-inner">
       <section-title></section-title>
+    <div class="work-inner">
       <work-list></work-list>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
 #work {
   padding-bottom: 50px;
     .work-inner {
-      width: 1600px;
+      width: 100%;
       margin: 0 auto;
     }
 }

@@ -295,16 +295,16 @@ export default {
                 font-weight: bold;
               }
 
-              &:first-child:hover{
+              &:nth-of-type(1):hover{
                 color: #171515;
               }
-              &:nth-child(2):hover{
+              &:nth-of-type(2):hover{
                 color: #55C500;
               }
-              &:nth-child(3):hover{
+              &:nth-of-type(3):hover{
                 color: #00acee;
               }
-              &:last-child:hover{
+              &:nth-of-type(4):hover{
                 color: #487c38;
               }
             }
