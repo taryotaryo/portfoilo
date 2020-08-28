@@ -1,15 +1,15 @@
 <template>
     <header>
-      <div class="header-inner">
-        <router-link to="/"><div class="header-home" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Home</div></router-link>
-        <div class="header-list">
-            <ul class="header-lists">
-                <router-link to="/about"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</li></router-link>
-                <router-link to="/work"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</li></router-link>
-                <router-link to="/post"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Posts</li></router-link>
-                <router-link to="/contact"><li v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li></router-link>
-            </ul>
-        </div>
+      <div class="inner">
+        <router-link to="/"><div class="home" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Home</div></router-link>
+        <nav>
+          <ul class="navMenu">
+            <router-link to="/about"><li class="navList" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</li></router-link>
+            <router-link to="/work"><li class="navList" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</li></router-link>
+            <router-link to="/post"><li class="navList" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Posts</li></router-link>
+            <router-link to="/contact"><li class="navList" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li></router-link>
+          </ul>
+        </nav>
       </div>
     </header>
 </template>
@@ -26,64 +26,53 @@ export default {
     }
   }
 }
-
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 header {
   position: absolute;
   top: 0;
-  width: 100%;
   height: 140px;
+  width: 100%;
   margin: 0 auto;
-  font-weight: bold;
   font-size: 26px;
-
+  font-weight: bold;
   a {
-    cursor: none;
     color: #fff;
+    cursor: none;
     text-decoration: none;
   }
-
-  .header-home{
-    transition: 0.3s;
-    line-height: 140px;
-
-    &:hover {
-      color: #89c997;
-      transform: scale(1.5);
-    }
-  }
-
-  .header-inner{
+  .inner{
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     width: 90%;
-
-    .header-lists {
-      list-style: none;
+    .home{
+      transition: 0.3s;
+      line-height: 140px;
+      &:hover {
+        color: #89c997;
+        transform: scale(1.5);
+      }
+    }
+    .navMenu {
       display: flex;
       margin: 0;
-
-      li {
-        cursor: none;
-        border-radius: 5px;
+      list-style: none;
+      .navList {
         margin-right: 50px;
-        transition: 0.3s;
+        border-radius: 5px;
         line-height: 140px;
-
-          &:nth-of-type(4){
-            margin-right: 0px;
-          }
-          &:hover {
-            color: #89c997;
-            transform: scale(1.5);
-          }
+        transition: 0.3s;
+        &:nth-of-type(4){
+          margin-right: 0px;
+        }
+        &:hover {
+          color: #89c997;
+          transform: scale(1.5);
+        }
       }
     }
   }
-
 }
-
 </style>

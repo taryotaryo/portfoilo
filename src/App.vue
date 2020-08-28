@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import 'normalize.css'
+import 'ress'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import Cursor from './components/Cursor.vue'
