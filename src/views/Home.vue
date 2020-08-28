@@ -1,9 +1,10 @@
 <template>
   <div id="home">
-      <div class="home-container">
-        <h1 class="home-message" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()"><span>W</span>elcome <span>T</span>o <span>M</span>y <span>P</span>ortfolio</h1>
+      <div class="wrapper">
+        <h1 class="message" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">
+          <span class="mintgreen">W</span>elcome <span class="mintgreen">T</span>o <span class="mintgreen">M</span>y <span class="mintgreen">P</span>ortfolio
+        </h1>
       </div>
-      <div class="moon"></div>
   </div>
 </template>
 
@@ -24,14 +25,14 @@ export default {
 <style lang="scss">
 #home {
   height: 100vh;
-  .home-container {
+  .wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
     text-align: center;
-    .home-message{
+    .message{
       font-size: 100px;
       display: inline;
       position: relative;
@@ -71,7 +72,7 @@ export default {
           height: 3px;
         }
 
-      span{
+      .mintgreen{
         color: #89c997;
       }
     }

@@ -1,19 +1,18 @@
 <template>
 <div v-if="$route.path === '/about'" class="section-firstview">
-  <div class="section-title">
+  <div class="section-title-hr">
     <h1 v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</h1>
   </div>
   <div class="img-block bg-p"></div>
 </div>
 <div v-else-if="$route.path === '/work'" class="section-firstview">
-  <div class="section-title">
+  <div class="section-title-hr">
     <h1 v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Work</h1>
   </div>
   <div class="img-block bg-w"></div>
 </div>
-  <!-- <h1 class="section-title" v-else-if="$route.path === '/work'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Works</h1>
-  <h1 class="section-title" v-else-if="$route.path === '/post'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Post</h1>
-  <h1 class="section-title" v-else-if="$route.path === '/contact'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</h1> -->
+<h1 class="section-title-sm" v-else-if="$route.path === '/post'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Post</h1>
+<h1 class="section-title-sm" v-else-if="$route.path === '/contact'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</h1>
 </template>
 
 <script>
@@ -34,7 +33,7 @@ export default {
 .section-firstview {
   display: flex;
   width: 100%;
-  .section-title {
+  .section-title-hr {
     display: inline-block;
     z-index: -2;
     width: 20%;
@@ -74,5 +73,11 @@ export default {
   .bg-w {
     background-image: url("../assets/profile.png");
   }
+}
+.section-title-sm {
+  display: inline-block;
+  padding-top: 200px;
+  font-size: 80px;
+  letter-spacing: 0.2em;
 }
 </style>

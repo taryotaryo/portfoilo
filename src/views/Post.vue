@@ -3,7 +3,6 @@
     <div class="post-inner">
       <section-title></section-title>
       <div class="qiita-block">
-        <h2 v-on:mouseover="mouseEnter2()" v-on:mouseleave="mouseLeave()">Qiita Posts</h2>
         <ul class="qiita-posts" >
           <li class="qiita-post" v-for="post in posts" v-bind:key="post" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">
             <a v-bind:href="post['url']" target="_blank" rel="noopener noreferrer">
@@ -43,9 +42,6 @@ export default {
     },
     mouseEnter: function () {
       bus.$emit('bus-event-onView')
-    },
-    mouseEnter2: function () {
-      bus.$emit('bus-event-onNav')
     },
     mouseLeave: function () {
       bus.$emit('bus-event-off')
