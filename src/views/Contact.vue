@@ -1,11 +1,11 @@
 <template>
   <div id="contact">
-    <div class="contact-inner">
+    <div class="inner">
       <section-title></section-title>
-      <form action="">
-        <input type="text" placeholder="Name" name="name" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()">
-        <input type="email" placeholder="Email" name="email" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()">
-        <textarea placeholder="Message" name="message" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()"></textarea>
+      <form class="contactForm" action="">
+        <input type="text" placeholder="Name" name="name" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()">
+        <input type="email" placeholder="Email" name="email" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()">
+        <textarea placeholder="Message" name="message" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()"></textarea>
         <input type="submit" value="Send">
       </form>
     </div>
@@ -28,53 +28,43 @@ export default {
     },
     focus: function () {
       bus.$emit('bus-event-focusInput')
+    },
+    blur: function () {
+      bus.$emit('bus-event-blurInput')
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #contact {
   padding-bottom: 50px;
-  .contact-inner {
+  .inner {
     width: 1600px;
     margin: 0 auto;
-
-    form {
+    .contactForm {
     width: 50%;
     margin: 6% auto;
     min-width: 9rem;
-
       input, textarea {
         width: 100%;
         max-width: 100%;
-        border: none;
         margin: 0.5rem 0;
         padding: 0.5rem 1rem;
-        border-radius: 0.3rem;
         background: #f9f9f9;
+        border: none;
+        border-radius: 0.3rem;
         color: darken(#f9f9f9, 40%);
         cursor: none;
-
           &[type=submit] {
+            width: auto;
             background: #89c997;
             color: #fff;
-            width: auto;
           }
-
           &::placeholder {
             color: darken(#f9f9f9, 40%);
           }
-
-          &.error {
-            background: #AD4747;
-            color: #fff;
-            &::placeholder {
-              color: darken(#AD4747, 60%);
-            }
-        }
       }
-
       textarea {
         height: 10rem;
       }

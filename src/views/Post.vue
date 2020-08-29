@@ -1,17 +1,15 @@
 <template>
   <div id="post">
-    <div class="post-inner">
+    <div class="inner">
       <section-title></section-title>
-      <div class="qiita-block">
-        <ul class="qiita-posts" >
-          <li class="qiita-post" v-for="post in posts" v-bind:key="post" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">
-            <a v-bind:href="post['url']" target="_blank" rel="noopener noreferrer">
-              <p class="qiita-post-title">{{ post['title'] }}</p>
-              <span  class="qiita-post-tag" v-for="tag in post['tags']" v-bind:key="tag">{{ tag['name'] }}</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul class="qiitaPosts" >
+        <li class="qiitaPost" v-for="post in posts" v-bind:key="post" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">
+          <a v-bind:href="post['url']" target="_blank" rel="noopener noreferrer">
+            <p class="title">{{ post['title'] }}</p>
+            <span  class="tag" v-for="tag in post['tags']" v-bind:key="tag">{{ tag['name'] }}</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -50,53 +48,44 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #post {
-  padding-bottom: 50px;
-  .post-inner {
+  padding-bottom: 100px;
+  .inner {
     width: 1600px;
     margin: 0 auto;
+    .qiitaPosts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .qiitaPost {
+        width: 45%;
+        margin-bottom: 30px;
+        background-color: #fff;
+        border-radius: 5px;
+        list-style: none;
+        transition: 0.3s;
 
-    .qiita-block {
-      h2{
-        font-size: 30px;
-      }
-      .qiita-posts {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        .qiita-post {
-          width: 45%;
-          background-color: #fff;
-          border-radius: 5px;
-          list-style: none;
-          margin-bottom: 30px;
-          transition: 0.3s;
-
-          &:hover {
-            transform: translateY(-10px);
+        &:hover {
+          transform: translateY(-10px);
+        }
+        a {
+          display: block;
+          padding: 20px 20px;
+          color: #696969;
+          text-decoration: none;
+          .title {
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: bold;
           }
-          a {
-            display: block;
-            color: #696969;
-            padding: 20px 20px;
-            text-decoration: none;
-
-            .qiita-post-title {
-              font-size: 20px;
-              font-weight: bold;
-              margin-bottom: 5px;
-            }
-
-            .qiita-post-tag {
-              margin-right: 5px;
-              padding: 5px 10px 5px 10px;
-              background-color: #89c997;
-              border-radius: 5px;
-              color: #fff;
-              font-weight: bold;
-            }
+          .tag {
+            margin-right: 5px;
+            padding: 5px 10px 5px 10px;
+            background-color: #89c997;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
           }
         }
       }

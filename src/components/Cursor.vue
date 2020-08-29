@@ -1,27 +1,7 @@
 <template>
   <div>
-    <!--body直下にカーソルとなる要素を配置-->
-    <p id="cursor" v-bind:class="{ active: onViewActive }"
-    v-bind:style="{
-      opacity: opacityA,
-      top: mouseY + 'px',
-      left: mouseX + 'px'
-      }">
-    </p>
-    <!--body直下にマウスストーカーとなる要素を配置-->
-    <div v-if="!onViewActive" id="stalker"
-    v-bind:style="{
-      opacity: opacityB,
-      transform: 'translate('+posX+'px,'+posY+'px)'
-      }">
-    </div>
-    <div v-else-if="onViewActive" v-bind:class="{ active: onViewActive }" id="stalker"
-    v-bind:style="{
-      zIndex: zIndex,
-      opacity: opacityB,
-      transform: 'translate('+posX+'px,'+posY+'px)'+scale
-      }">{{hoverMessage}}
-    </div>
+    <p id="cursor" v-bind:style="cursorStyle"></p>
+    <div id="stalker" v-bind:style="stalkerStyle">{{hoverMessage}}</div>
   </div>
 </template>
 
@@ -34,12 +14,61 @@ export default {
       mouseY: 0,
       posX: 0,
       posY: 0,
-      opacityA: 0,
-      opacityB: 0,
-      onViewActive: false,
+      cursorOpacity: 0,
+      stalkerOpacity: 0,
       hoverMessage: '',
-      zIndex: 2,
-      scale: 'scale(2)'
+      isHover: false, // 要素上にホバーしているかどうか
+      isHoverOnNavMenu: false, // ナビメニュー要素上にホバーしているかどうか
+      isHoverOnLink: false, // 外部リンク遷移のある要素にホバーしているかどうか
+      isHoverOnInput: false, // input要素にホバーしているかどうか
+      isFocus: false
+    }
+  },
+  computed: {
+    cursorStyle: function () {
+      if (this.isHover || this.isHoverOnLink || this.isHoverOnInput) {
+        return {
+          backgroundColor: 'transparent',
+          opacity: this.cursorOpacity,
+          top: this.mouseY + 'px',
+          left: this.mouseX + 'px'
+        }
+      }
+      return {
+        opacity: this.cursorOpacity,
+        top: this.mouseY + 'px',
+        left: this.mouseX + 'px'
+      }
+    },
+    stalkerStyle: function () {
+      if (this.isHover) {
+        return {
+          zIndex: -1,
+          opacity: this.stalkerOpacity,
+          transform: 'translate(' + this.posX + 'px,' + this.posY + 'px) scale(2)'
+        }
+      }
+      if (this.isHoverOnLink || this.isHoverOnInput) {
+        return {
+          zIndex: 2,
+          opacity: this.stalkerOpacity,
+          transform: 'translate(' + this.posX + 'px,' + this.posY + 'px) scale(2)',
+          backgroundColor: '#ffefd5',
+          color: '#89c997',
+          fontSize: '14px',
+          lineHeight: '40px',
+          textAlign: 'center'
+        }
+      }
+      if (this.isFocus) {
+        return {
+          transform: 'translate(' + this.posX + 'px,' + this.posY + 'px) scale(2)'
+        }
+      }
+      return {
+        opacity: this.stalkerOpacity,
+        transform: 'translate(' + this.posX + 'px,' + this.posY + 'px)'
+      }
     }
   },
   created: function () {
@@ -56,86 +85,78 @@ export default {
     getCursorCoordinate: function (event) {
       this.mouseX = event.pageX
       this.mouseY = event.pageY
-      if (this.opacityA === 0) {
-        this.opacityA = 1
+      if (this.cursorOpacity === 0) {
+        this.cursorOpacity = 1
       }
       setTimeout(function () {
         this.posX = `${this.mouseX - 20}`
         this.posY = `${this.mouseY - 24}`
-        if (this.opacityB === 0) {
-          this.opacityB = 1
+        if (this.stalkerOpacity === 0) {
+          this.stalkerOpacity = 1
         }
       }.bind(this), 100)
     },
     // ホバーの動作
     onNav: function () {
-      this.onViewActive = true
-      this.scale = 'scale(2)'
+      this.isHover = true
       this.hoverMessage = ''
-      this.zIndex = -1
     },
     onView: function () {
-      this.onViewActive = true
-      this.scale = 'scale(2)'
+      this.isHoverOnLink = true
       this.hoverMessage = 'view'
-      this.zIndex = 2
     },
     onInput: function () {
-      this.onViewActive = true
-      this.scale = 'scale(2)'
+      this.isFocus = false
+      this.isHoverOnInput = true
       this.hoverMessage = 'input'
-      this.zIndex = 2
     },
     off: function () {
-      this.onViewActive = false
+      this.isHover = false
+      this.isHoverOnLink = false
+      this.isHoverOnInput = false
+      this.isFocus = false
+      this.hoverMessage = ''
     },
     // クリック時の動作
     focusInput: function () {
-      this.scale = 'scale(0)'
+      this.isFocus = true
+      this.isHoverOnInput = false
+      this.hoverMessage = ''
+    },
+    blurInput: function () {
+      this.isFocus = false
     }
   }
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 /*カーソル*/
 #cursor{
   position: absolute;
   top: 0;
   left: 0;
-  width: 8px;
   height: 8px;
+  width: 8px;
   margin: -7px 0 0 -4px;
+  background-color: #89c997;
   border-radius: 50%;
-  z-index: 3;/*一番手前に来るように*/
+  opacity: 0;/*開いた瞬間非表示*/
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   transition: transform 180ms;
-  opacity: 0;/*開いた瞬間非表示*/
-  background-color: #000;
+  z-index: 3;/*一番手前に来るように*/
 }
-
-#cursor.active{
-  background-color: transparent;
-}
-
 #stalker{
   position: absolute;
-  background-color: blue;
-  border-radius: 50%;
-  width: 40px;
   height: 40px;
+  width: 40px;
   z-index: 2;/*一番手前に来るように*/
-  pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
+  background-color: blue;
   background-size: contain;
   background-color: #ffefd5;
+  border-radius: 50%;
   opacity: 0;/*開いた瞬間非表示*/
+  pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   transition: transform 180ms;
-}
-#stalker.active{
-  background-color: #ffefd5;
-  color: #89c997;
-  line-height: 40px;
-  text-align: center;
-  font-size: 14px;
 }
 </style>
