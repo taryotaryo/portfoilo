@@ -1,18 +1,18 @@
 <template>
-<div v-if="$route.path === '/about'" class="section-firstview">
-  <div class="section-title-hr">
-    <h1 v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</h1>
+<div class="title-withFirstview" v-if="$route.path === '/about'">
+  <div class="leftSpace">
+    <h1 class="title" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">About</h1>
   </div>
-  <div class="img-block bg-p"></div>
+  <div class="background background-profile"></div>
 </div>
-<div v-else-if="$route.path === '/work'" class="section-firstview">
-  <div class="section-title-hr">
-    <h1 v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Work</h1>
+<div class="title-withFirstview" v-else-if="$route.path === '/work'">
+  <div class="leftSpace">
+    <h1 class="title" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Work</h1>
   </div>
-  <div class="img-block bg-w"></div>
+  <div class="background background-work"></div>
 </div>
-<h1 class="section-title-sm" v-else-if="$route.path === '/post'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Post</h1>
-<h1 class="section-title-sm" v-else-if="$route.path === '/contact'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</h1>
+<h1 class="title-simple" v-else-if="$route.path === '/post'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Post</h1>
+<h1 class="title-simple" v-else-if="$route.path === '/contact'" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</h1>
 </template>
 
 <script>
@@ -29,17 +29,17 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.section-firstview {
+<style scoped lang="scss">
+.title-withFirstview {
   display: flex;
   width: 100%;
-  .section-title-hr {
+  .leftSpace {
     display: inline-block;
-    z-index: -2;
-    width: 20%;
     height: 100vh;
+    width: 20%;
     background-color: #111;
-    h1 {
+    z-index: -2;
+    .title {
       position: absolute;
       top: 360px;
       left: 240px;
@@ -52,31 +52,31 @@ export default {
     }
 
   }
-  .img-block {
-    z-index: -3;
+  .background {
     position: relative;
-    width: 80%;
     height: 100vh;
-
+    width: 80%;
+    z-index: -3;
     &:before {
-      position: absolute;
       content: '';
-      width: 100%;
+      position: absolute;
       height: 100%;
+      width: 100%;
       background-color: #FFDEAD;
       opacity: 0.7;
     }
   }
-  .bg-p {
+  .background-profile {
     background-image: url("../assets/about_image.jpg");
   }
-  .bg-w {
+  .background-work {
     background-image: url("../assets/profile.png");
   }
 }
-.section-title-sm {
+.title-simple {
   display: inline-block;
   padding-top: 200px;
+  padding-bottom: 50px;
   font-size: 80px;
   letter-spacing: 0.2em;
 }
