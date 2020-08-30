@@ -2,23 +2,17 @@
 <div class="content">
   <div class="skillGraph">
     <div class="frontend">
+      <div class="chartBox">
+        <frontendskillchart class="chart" width="600" height="200"></frontendskillchart>
+      </div>
       <p class="skillType position">Frontend</p>
-      <ul class="skillList">
-        <li class="skill" v-for="(frontSkill) in frontSkills" v-bind:key="frontSkill">
-          <p>{{ frontSkill }}</p>
-          <div class="bar bar-white"></div>
-        </li>
-      </ul>
     </div>
     <div class="dividingLine"></div>
     <div class="backend">
+      <div class="chartBox">
+        <backendskillchart class="chart" width="600" height="200"></backendskillchart>
+      </div>
       <p class="skillType position">Backend</p>
-      <ul class="skillList">
-        <li class="skill" v-for="(backEndSkill) in backEndSkills" v-bind:key="backEndSkill">
-          <div class="bar bar-gray"></div>
-          <p>{{ backEndSkill }}</p>
-        </li>
-      </ul>
     </div>
   </div>
   <div class="ohter">
@@ -46,27 +40,11 @@
 </template>
 
 <script>
+import FrontendSkillChart from './AboutSkillFrontend'
+import BackendSkillChart from './AboutSkillBackend'
 export default {
   data: function () {
     return {
-      frontSkills: [
-        'HTML',
-        'CSS(SCSS)',
-        'Bootstrap',
-        'JavaScript',
-        'jQuery',
-        'Vue.js',
-        'Vue CLI',
-        'Webpack'
-      ],
-      backEndSkills: [
-        'PHP',
-        'Ruby',
-        'Ruby on rails',
-        'SQL',
-        'WordPress',
-        'Firebase'
-      ],
       tools: [
         'Git',
         'Github',
@@ -86,6 +64,10 @@ export default {
         'translation'
       ]
     }
+  },
+  components: {
+    frontendskillchart: FrontendSkillChart,
+    backendskillchart: BackendSkillChart
   }
 }
 </script>
@@ -102,20 +84,6 @@ export default {
   .skillGraph {
     margin-top: 200px;
     margin-bottom: 200px;
-    .bar {
-      height: 100px;
-      width:  20px;
-      margin:  0 auto;
-    }
-    .skill {
-      display:  inline-block;
-      width:  100px;
-      font-size: 16px;
-      text-align:  center;
-    }
-    .skillList {
-      font-size: 0; // li要素をボーダーにくっつける
-    }
     // フロントエンド用CSS
     .frontend {
       position: relative;
@@ -125,21 +93,15 @@ export default {
         right: 80px;
         transform: translateY(-50%);
       }
-      .bar-white {
-        background-color: #fff;
-      }
     }
     // バックエンド用CSS
     .backend {
       position: relative;
-      color: #666;
+      color: #8e8e8e;
       .position {
         top: 50%;
         right: 96px;
         transform: translateY(-50%);
-      }
-      .bar-gray {
-        background-color: #666;
       }
     }
     .dividingLine {
