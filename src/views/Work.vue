@@ -120,6 +120,9 @@ export default {
     display: flex;
     padding-top: 80px;
     color: #fff;
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
   }
 }
 </style>

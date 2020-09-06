@@ -44,12 +44,29 @@ export default {
   margin-bottom: 80px;
   padding-top: 80px;
   padding-bottom: 80px;
+  @media screen and (max-width: 1024px) {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 90%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 
   .videoSide {
     width: 40%;
     height: auto;
     background: #8735b0;
     text-align: left;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      background: transparent;
+    }
     .workVideo {
       width: 100%;
       opacity: 1;
@@ -63,23 +80,43 @@ export default {
   .description {
     margin-left: 50px;
     width: 50%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      margin-left: 0px;
+    }
     .headline {
       font-size: 20px;
       margin-top: 20px;
       margin-bottom: 20px;
+      @media screen and (max-width: 1024px) {
+        font-size: 18px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+      }
     }
     .list{
       color: darken(#fff, 15%);
       font-size: 18px;
       line-height: 1.6rem;
+      margin-left: 2em;
+      @media screen and (max-width: 1024px) {
+        font-size: 16px;
+      }
     }
     .icon {
       margin-right: 1rem;
     }
     .tech {
-      padding: 8px 10px;
       margin-right: 8px;
       margin-bottom: 8px;
+      padding: 8px 10px;
+      color: darken(#fff, 15%);
+      @media screen and (max-width: 1024px) {
+        font-size: 16px;
+      }
+      @media screen and (max-width: 1024px) {
+        padding: 8px 2px;
+      }
     }
   }
 }
