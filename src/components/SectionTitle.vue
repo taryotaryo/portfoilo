@@ -39,6 +39,9 @@ export default {
     width: 20%;
     background-color: #111;
     z-index: -2;
+      @media screen and (max-width: 1024px) {
+        width: 0%;
+      }
     .title {
       position: absolute;
       top: 360px;
@@ -46,8 +49,16 @@ export default {
       font-size: 80px;
       letter-spacing: 0.4em;
       margin: 0;
+      @media screen and (max-width: 1024px) {
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50px;
+      }
       &:first-letter {
         font-size: 100px;
+        @media screen and (max-width: 1024px) {
+          font-size: 70px;
+        }
       }
     }
 
@@ -57,6 +68,9 @@ export default {
     height: 100vh;
     width: 80%;
     z-index: -3;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -68,6 +82,10 @@ export default {
   }
   .background-profile {
     background-image: url("../assets/about_image.jpg");
+    background-size: cover;
+    @media screen and (max-width: 1024px) {
+      background-position: top center;
+    }
   }
   .background-work {
     background-image: url("../assets/profile.png");
@@ -79,5 +97,8 @@ export default {
   padding-bottom: 50px;
   font-size: 80px;
   letter-spacing: 0.2em;
+  @media screen and (max-width: 1024px) {
+    font-size: 50px;
+  }
 }
 </style>

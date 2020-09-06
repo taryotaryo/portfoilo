@@ -74,7 +74,7 @@ header {
     .home{
       transition: 0.3s;
       line-height: 140px;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 1024px) {
         display: none;
       }
       &:hover {
@@ -86,7 +86,7 @@ header {
       display: flex;
       margin: 0;
       list-style: none;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 1024px) {
         display: none;
       }
       .navList {
@@ -112,7 +112,7 @@ header {
       width: 32px;
       transition: 2s;
       z-index: 10;
-      @media screen and (max-width: 767px) {
+      @media screen and (max-width: 1024px) {
         display: block;
       }
       .bar {
@@ -165,15 +165,20 @@ header {
         flex-basis: 35%;
       }
       .navList-sp {
-        height: 120px;
-        width: 120px;
+        height: 180px;
+        width: 180px;
         margin: 0 auto;
         margin-bottom: 50px;
         border: 1px solid #111;
         border-radius: 50%;
         color: #111;
         list-style: none;
-        line-height: 120px;
+        line-height: 180px;
+        @media screen and (max-width: 767px) {
+          height: 120px;
+          width: 120px;
+          line-height: 120px;
+        }
       }
     }
   }
