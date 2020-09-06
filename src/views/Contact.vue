@@ -40,12 +40,18 @@ export default {
 #contact {
   padding-bottom: 50px;
   .inner {
-    width: 1600px;
+    width: 90%;
     margin: 0 auto;
     .contactForm {
     width: 50%;
     margin: 6% auto;
     min-width: 9rem;
+    @media screen and (max-width: 1024px) {
+      width: 80%;
+    }
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
       input, textarea {
         width: 100%;
         max-width: 100%;
@@ -56,10 +62,22 @@ export default {
         border-radius: 0.3rem;
         color: darken(#f9f9f9, 40%);
         cursor: none;
+        @media screen and (max-width: 1024px) {
+          margin: 0.8rem 0;
+          padding: 1rem 1rem;
+          background: #f9f9f9;
+          border: none;
+          border-radius: 0.3rem;
+          color: darken(#f9f9f9, 40%);
+          cursor: none;
+        }
           &[type=submit] {
             width: auto;
             background: #89c997;
             color: #fff;
+            @media screen and (max-width: 1024px) {
+              width: 100%;
+            }
           }
           &::placeholder {
             color: darken(#f9f9f9, 40%);
