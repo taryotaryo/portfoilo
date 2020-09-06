@@ -52,8 +52,11 @@ export default {
 #post {
   padding-bottom: 100px;
   .inner {
-    width: 1600px;
+    width: 90%;
     margin: 0 auto;
+      @media screen and (max-width: 1024px) {
+        // width: 80%;
+      }
     .qiitaPosts {
       display: flex;
       flex-wrap: wrap;
@@ -65,6 +68,14 @@ export default {
         border-radius: 5px;
         list-style: none;
         transition: 0.3s;
+        @media screen and (max-width: 1024px) {
+          width: 90%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        @media screen and (max-width: 767px) {
+          width: 100%;
+        }
 
         &:hover {
           transform: translateY(-10px);
@@ -78,6 +89,9 @@ export default {
             margin-bottom: 5px;
             font-size: 20px;
             font-weight: bold;
+            @media screen and (max-width: 767px) {
+              margin-bottom: 10px;
+            }
           }
           .tag {
             margin-right: 5px;
