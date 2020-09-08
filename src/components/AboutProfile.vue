@@ -68,9 +68,17 @@ export default {
   margin-top: 40px;
   .introduction {
     width: 50%;
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+      margin: 0 auto;
+    }
     .name {
       margin-bottom: 30px;
       font-size: 40px;
+      @media screen and (max-width: 1024px) {
+        margin-bottom: 20px;
+        font-size: 32px;
+      }
     }
   }
   .like {
@@ -80,14 +88,20 @@ export default {
     }
     }
     .account {
-    margin-top: 30px;
+    margin-top: 20px;
     .icon {
+        display: inline-block;
+        margin-right: 50px;
         position: relative;
-        margin-right: 40px;
         color: #fff;
         font-size: 30px;
         text-decoration: none;
         transition: .3s;
+        @media screen and (max-width: 767px) {
+          width: 25%;
+          margin-right: 0px;
+          font-size: 50px;
+        }
         &:hover:before {
         content: 'Click';
         display: block;
@@ -117,8 +131,16 @@ export default {
 .profileImage {
     text-align: right;
     margin-right: 300px;
+    @media screen and (max-width: 1024px) {
+      text-align: center;
+      margin-top: 40px;
+      margin-right: 0px;
+    }
     img {
     width: 200px;
+      @media screen and (max-width: 767px) {
+        width: 150px;
+      }
     }
 }
 </style>

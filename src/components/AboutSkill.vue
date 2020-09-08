@@ -15,6 +15,10 @@
       <p class="skillType position">Backend</p>
     </div>
   </div>
+  <div class="chart-sp">
+    <p class="headline">Tech Skills</p>
+    <skillchartforsp class="chart-sp" width="360" height="300" />
+  </div>
   <div class="ohter">
     <p class="skillType position">Others</p>
     <div class="unit">
@@ -42,6 +46,7 @@
 <script>
 import FrontendSkillChart from './AboutSkillFrontend'
 import BackendSkillChart from './AboutSkillBackend'
+import SkillChartForSp from './AboutSkillGrauhForSp'
 export default {
   data: function () {
     return {
@@ -67,7 +72,8 @@ export default {
   },
   components: {
     frontendskillchart: FrontendSkillChart,
-    backendskillchart: BackendSkillChart
+    backendskillchart: BackendSkillChart,
+    skillchartforsp: SkillChartForSp
   }
 }
 </script>
@@ -75,6 +81,21 @@ export default {
 <style scoped lang="scss">
 .skill {
   // 共通class
+  .chart-sp {
+      display: none;
+      .headline {
+        margin-top: 120px;
+        margin-bottom: 10px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        text-align: center;
+      }
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+    }
   .skillType {
     position: absolute;
     font-size: 24px;
@@ -84,6 +105,14 @@ export default {
   .skillGraph {
     margin-top: 200px;
     margin-bottom: 200px;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    .chart {
+      @media screen and (max-width: 1024px) {
+        margin-left: 100px;
+      }
+    }
     // フロントエンド用CSS
     .frontend {
       position: relative;
@@ -92,6 +121,9 @@ export default {
         top: 50%;
         right: 80px;
         transform: translateY(-50%);
+        @media screen and (max-width: 1200px) {
+          display: none;
+        }
       }
     }
     // バックエンド用CSS
@@ -100,32 +132,64 @@ export default {
       color: #8e8e8e;
       .position {
         top: 50%;
-        right: 96px;
+        right: 100px;
         transform: translateY(-50%);
+        @media screen and (max-width: 1200px) {
+          display: none;
+        }
       }
     }
     .dividingLine {
       height: 1px;
       width: 100%;
       background-color: #fff;
+      @media screen and (max-width: 1024px) {
+        width: 90%;
+        margin-left: auto;
+      }
     }
   }
   .ohter {
     display: flex;
     color: darken(#fff, 30%);
+      @media screen and (max-width: 1024px) {
+        justify-content: space-around;
+      }
+      @media screen and (max-width: 767px) {
+        display: block;
+        text-align: center;
+      }
     .position {
       right: 135px;
+      @media screen and (max-width: 1200px) {
+        display: none;
+      }
     }
     .unit {
       width: 20%;
       font-size: 20px;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+        font-size: 16px;
+        text-align: left;
+        text-align: center;
+      }
     }
     .headline {
+      color: #fff;
       font-weight: bold;
       margin-bottom: 10px;
+      letter-spacing: 0.1rem;
+      @media screen and (max-width: 767px) {
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+      }
     }
     .otherlist {
       list-style: none;
+      line-height: 1.5;
+      letter-spacing: 0.1rem;
     }
   }
 }

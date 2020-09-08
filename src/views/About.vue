@@ -55,10 +55,16 @@ export default {
 
   .flex {
     display: flex;
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
   }
 
   .content {
     width: 80%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 }
 </style>
