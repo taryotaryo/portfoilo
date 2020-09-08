@@ -9,7 +9,9 @@
         <li class="list" v-for="summary in workinfo.summaries" v-bind:key="summary">{{ summary }}</li>
       </ul>
       <h3 class="headline"><span class="icon"><font-awesome-icon icon="laptop-code" /></span>使用技術・デプロイ</h3>
-      <span class="tech" v-for="tech in workinfo.techs" v-bind:key="tech">{{ tech }}</span>
+      <div class="techbox">
+        <span class="tech" v-for="tech in workinfo.techs" v-bind:key="tech">{{ tech }}</span>
+      </div>
       <h3 class="headline"><span class="icon"><font-awesome-icon icon="lightbulb" /></span>こだわりポイント</h3>
       <ul class="commitment">
         <li class="list" v-for="commitment in workinfo.commitments" v-bind:key="commitment">{{ commitment }}</li>
@@ -106,16 +108,20 @@ export default {
     .icon {
       margin-right: 1rem;
     }
-    .tech {
-      margin-right: 8px;
-      margin-bottom: 8px;
-      padding: 8px 10px;
-      color: darken(#fff, 15%);
-      @media screen and (max-width: 1024px) {
-        font-size: 16px;
-      }
-      @media screen and (max-width: 1024px) {
-        padding: 8px 2px;
+    .techbox {
+      display: flex;
+      flex-wrap: wrap;
+      .tech {
+        margin-right: 8px;
+        margin-bottom: 8px;
+        padding: 8px 10px;
+        color: darken(#fff, 15%);
+        @media screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 1024px) {
+          padding: 8px 2px;
+        }
       }
     }
   }

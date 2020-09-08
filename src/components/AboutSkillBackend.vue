@@ -9,7 +9,7 @@ export default {
         labels: ['PHP', 'Ruby', 'rails', 'SQL', 'WordPress', 'Firebase', 'Github'],
         datasets: [
           {
-            data: [-30, -40, -40, -50, -70, -60, -70, -80, ''],
+            data: [-30, -40, -40, -50, -60, -50, -80, ''],
             backgroundColor: [
               '#8e8e8e',
               '#8e8e8e',

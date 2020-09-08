@@ -36,6 +36,9 @@ export default {
       font-size: 100px;
       display: inline;
       position: relative;
+      @media screen and (max-width: 1024px) {
+        font-size: 60px;
+      }
 
         &:before, &:after {
           animation-name: border-moving;

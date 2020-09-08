@@ -9,7 +9,7 @@ export default {
         labels: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'jQuery', 'Vue.js'],
         datasets: [
           {
-            data: [80, 60, 70, 40, 60, 60, 70, 80, ''],
+            data: [80, 70, 80, 40, 60, 50, 70, 80, ''],
             backgroundColor: [
               '#fff',
               '#fff',
