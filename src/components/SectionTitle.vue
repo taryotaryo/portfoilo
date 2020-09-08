@@ -98,6 +98,8 @@ export default {
   font-size: 80px;
   letter-spacing: 0.2em;
   @media screen and (max-width: 1024px) {
+    padding-top: 40px;
+    padding-bottom: 20px;
     font-size: 50px;
   }
 }

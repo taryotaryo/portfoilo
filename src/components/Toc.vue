@@ -16,7 +16,7 @@ export default {
 .toc {
   width: 20%;
   @media screen and (max-width: 1024px) {
-    width: 70%;
+    width: 100%;
   }
   .topic {
     position: relative;
