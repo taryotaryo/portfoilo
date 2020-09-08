@@ -94,6 +94,7 @@ export default {
         margin-right: 50px;
         position: relative;
         color: #fff;
+        cursor: none;
         font-size: 30px;
         text-decoration: none;
         transition: .3s;
@@ -111,6 +112,9 @@ export default {
         transform: translateX(-50%);
         font-size: 16px;
         font-weight: bold;
+        @media screen and (max-width: 1024px) {
+          display: none;
+        }
         }
 
         &:nth-of-type(1):hover{

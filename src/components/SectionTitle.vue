@@ -88,7 +88,10 @@ export default {
     }
   }
   .background-work {
-    background-image: url("../assets/profile.png");
+    background-image: url("../assets/work_image.jpg");
+    @media screen and (max-width: 1024px) {
+      background-position: top center;
+    }
   }
 }
 .title-simple {

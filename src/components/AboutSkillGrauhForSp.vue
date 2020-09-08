@@ -9,7 +9,7 @@ export default {
         labels: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'jQuery', 'Vue.js', 'PHP', 'Ruby', 'rails', 'SQL', 'WordPress', 'Firebase', 'Github'],
         datasets: [
           {
-            data: [80, 60, 70, 40, 60, 60, 70, 80, 30, 40, 40, 50, 70, 60, 70, 80],
+            data: [80, 70, 80, 40, 60, 50, 70, 30, 40, 40, 50, 60, 50, 80],
             backgroundColor: [
               '#fff',
               '#fff',
