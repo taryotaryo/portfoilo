@@ -4,15 +4,22 @@
     </footer>
 </template>
 
-<style>
+<style scoped lang="scss">
 footer {
   position: absolute;
   bottom: 10px;
+  width: 100%;
   left: 50%;
   transform: translateX(-50%);
-}
-footer p {
+  @media screen and (max-width: 1024px) {
+    bottom: 0;
+  }
+  p {
     color: #fff;
     text-align: center;
+    @media screen and (max-width: 1024px) {
+      font-size: 12px;
+    }
+  }
 }
 </style>

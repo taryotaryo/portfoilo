@@ -1,5 +1,5 @@
 <template>
-  <div id="contact">
+<div id="contact">
     <div class="inner">
       <section-title></section-title>
       <form class="contactForm" action="">
@@ -9,7 +9,7 @@
         <input type="submit" value="Send">
       </form>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -38,7 +38,7 @@ export default {
 
 <style scoped lang="scss">
 #contact {
-  padding-bottom: 50px;
+  height: 100vh;
   .inner {
     width: 90%;
     margin: 0 auto;
