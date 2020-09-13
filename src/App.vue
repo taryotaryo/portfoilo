@@ -38,6 +38,9 @@ export default {
 }
 .v-enter-active, .v-leave-active {
     transition: opacity 500ms;
+    @media screen and (max-width: 1024px) {
+      transition: opacity 0ms;
+    }
 }
 
 body {
