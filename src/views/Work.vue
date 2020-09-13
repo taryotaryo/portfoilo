@@ -36,39 +36,6 @@ export default {
   data: function () {
     return {
       work1: {
-        image: require('../assets/portfolio_movie.mp4'),
-        url: 'https://ta-ryo.com/lp',
-        topic: '01',
-        techs: ['HTML', 'CSS', 'hover.css', 'Javascript(jQuery)', 'Xserver'],
-        summaries: [
-          '縦長のシングルページで制作したポートフォリオサイト'
-        ],
-        commitments: [
-          '開いた瞬間のインパクトにこだわった画面いっぱいのヒーロームービーを実装',
-          '上部固定ヘッダーを背景に埋もれさせないように色を背景色に合わせて変化',
-          '見た目に多くの動きを実装する過程で様々なライブラリを経験',
-          'ホバーしたら何もないところから説明文を出現させる実装を独力で実装'
-        ]
-      },
-      work2: {
-        image: require('../assets/portfolio_janken.mp4'),
-        url: 'https://ta-ryo.com/lp',
-        topic: '02',
-        techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'Github Pages'],
-        summaries: [
-          'vue.jsで制作したじゃんけんアプリ',
-          'vue.jsを実践的に学ぶために制作',
-          '開始ボタンを押すことで何度でも再戦可能',
-          '勝敗結果を保持し戦績をスコアページで確認できる'
-        ],
-        commitments:
-        [
-          '「はじめる」ボタンを押したらそのボタンは押せなくなり、出す手を決めるボタンを押せるようになる等の制御を実装',
-          'ゲーム画面とスコア画面の切り替えにSPAで構成',
-          'じゃんけんの戦績をスコアに渡せるようにコンポーネント間でデータの受け渡しを実装'
-        ]
-      },
-      work3: {
         image: require('../assets/this_portfolio.mp4'),
         url: '#',
         topic: '03',
@@ -85,6 +52,39 @@ export default {
           'npmを利用してaxios、FontAwesomeなどのパッケージを活用',
           'Firebaseへのデプロイ',
           'シンプルで統一感のあるデザインにするため色を3色に限定'
+        ]
+      },
+      work2: {
+        image: require('../assets/portfolio_janken.mp4'),
+        url: 'https://taryotaryo.github.io/janken_app/',
+        topic: '02',
+        techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'Github Pages'],
+        summaries: [
+          'vue.jsで制作したじゃんけんアプリ',
+          'vue.jsを実践的に学ぶために制作',
+          '開始ボタンを押すことで何度でも再戦可能',
+          '勝敗結果を保持し戦績をスコアページで確認できる'
+        ],
+        commitments:
+        [
+          '「はじめる」ボタンを押したらそのボタンは押せなくなり、出す手を決めるボタンを押せるようになる等の制御を実装',
+          'ゲーム画面とスコア画面の切り替えにSPAで構成',
+          'じゃんけんの戦績をスコアに渡せるようにコンポーネント間でデータの受け渡しを実装'
+        ]
+      },
+      work3: {
+        image: require('../assets/portfolio_movie.mp4'),
+        url: 'https://ta-ryo.com/lp',
+        topic: '01',
+        techs: ['HTML', 'CSS', 'hover.css', 'Javascript(jQuery)', 'Xserver'],
+        summaries: [
+          '縦長のシングルページで制作したポートフォリオサイト'
+        ],
+        commitments: [
+          '開いた瞬間のインパクトにこだわった画面いっぱいのヒーロームービーを実装',
+          '上部固定ヘッダーを背景に埋もれさせないように色を背景色に合わせて変化',
+          '見た目に多くの動きを実装する過程で様々なライブラリを経験',
+          'ホバーしたら何もないところから説明文を出現させる実装を独力で実装'
         ]
       },
       work4: {
