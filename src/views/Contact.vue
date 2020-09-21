@@ -2,10 +2,41 @@
 <div id="contact">
     <div class="inner">
       <section-title></section-title>
-      <form class="contactForm" action="">
-        <input type="text" placeholder="Name" name="name" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()">
-        <input type="email" placeholder="Email" name="email" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()">
-        <textarea placeholder="Message" name="message" required v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()" v-on:focus="focus()" v-on:blur="blur()"></textarea>
+      <form class="contactForm" action="" v-on:submit="checkForm">
+        <div v-if="errors.length">
+          <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
+        </div>
+        <input
+        id="name"
+        type="text"
+        placeholder="Name"
+        name="name"
+        v-model="name"
+        v-on:mouseover="mouseEnter()"
+        v-on:mouseleave="mouseLeave()"
+        v-on:focus="focus()"
+        v-on:blur="blur()"
+        >
+        <input
+        id="email"
+        placeholder="Email"
+        name="email"
+        v-model="email"
+        v-on:mouseover="mouseEnter()"
+        v-on:mouseleave="mouseLeave()"
+        v-on:focus="focus()"
+        v-on:blur="blur()"
+        >
+        <textarea
+        id="message"
+        placeholder="Message"
+        name="message"
+        v-model="contents"
+        v-on:mouseover="mouseEnter()"
+        v-on:mouseleave="mouseLeave()"
+        v-on:focus="focus()"
+        v-on:blur="blur()">
+        </textarea>
         <input type="submit" value="Send">
       </form>
     </div>
@@ -16,10 +47,41 @@
 import { bus } from '../main.js'
 import SectionTitle from '../components/SectionTitle.vue'
 export default {
+  data: function () {
+    return {
+      errors: [],
+      name: '',
+      email: '',
+      contents: ''
+    }
+  },
   components: {
     'section-title': SectionTitle
   },
   methods: {
+    checkForm: function (e) {
+      if (this.name && this.email && this.contents && this.checkString(this.email)) {
+        return true
+      }
+      this.errors = []
+      if (!this.name) {
+        this.errors.push('※名前を入力してください')
+      }
+      if (!this.email) {
+        this.errors.push('※メールアドレスを入力してください')
+      }
+      if (this.email && !this.checkString(this.email)) {
+        this.errors.push('※正しいメールアドレスを入力してください')
+      }
+      if (!this.contents) {
+        this.errors.push('※メッセージを入力してください')
+      }
+      e.preventDefault()
+    },
+    checkString: function (inputdata) {
+      const reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/
+      return reg.test(inputdata)
+    },
     mouseEnter: function () {
       bus.$emit('bus-event-onInput')
     },

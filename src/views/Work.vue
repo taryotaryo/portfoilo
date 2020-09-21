@@ -39,7 +39,7 @@ export default {
         image: require('../assets/this_portfolio.mp4'),
         url: '#',
         topic: '03',
-        techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'npm', 'Firebase'],
+        techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'npm', 'Netlify'],
         summaries: [
           'vue.jsで作成したポートフォリオサイト',
           '計5ページで構成(ホーム、技術や経歴紹介、作品紹介、執筆した記事一覧、コンタクト)'
@@ -50,7 +50,7 @@ export default {
           'axiosでqiita APIにhttp接続し執筆した記事を取得。Postページに一覧表示',
           '共通化可能な部分は積極的にComponent化',
           'npmを利用してaxios、FontAwesomeなどのパッケージを活用',
-          'Firebaseへのデプロイ',
+          'Netlifyへのデプロイ',
           'シンプルで統一感のあるデザインにするため色を3色に限定'
         ]
       },
