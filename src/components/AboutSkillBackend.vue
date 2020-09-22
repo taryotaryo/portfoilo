@@ -6,7 +6,7 @@ export default {
     return {
       type: 'bar',
       data: {
-        labels: ['PHP', 'Ruby', 'rails', 'SQL', 'WordPress', 'Firebase', 'Github'],
+        labels: ['PHP', 'Ruby', 'rails', 'SQL', 'WordPress', 'Netlify', 'Github'],
         datasets: [
           {
             data: [-30, -40, -40, -50, -60, -50, -80, ''],
