@@ -76,6 +76,7 @@ export default {
     bus.$on('bus-event-onNav', this.onNav) // 拡大のみ
     bus.$on('bus-event-onView', this.onView) // 拡大 + 文字「view」
     bus.$on('bus-event-onInput', this.onInput) // 拡大 + 文字「input」
+    bus.$on('bus-event-onSend', this.onSend) // 拡大 + 文字「input」
     bus.$on('bus-event-off', this.off) // 縮小(元に戻る)
     // フォーカス/非フォーカス時のトリガー
     bus.$on('bus-event-focusInput', this.focusInput) // 縮小して消える
@@ -109,6 +110,11 @@ export default {
       this.isFocus = false
       this.isHoverOnInput = true
       this.hoverMessage = 'input'
+    },
+    onSend: function () {
+      this.isFocus = false
+      this.isHoverOnInput = true
+      this.hoverMessage = 'Send'
     },
     off: function () {
       this.isHover = false
@@ -145,6 +151,9 @@ export default {
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   transition: transform 180ms;
   z-index: 3;/*一番手前に来るように*/
+  @media screen and (max-width: 1024px) {
+    visibility: hidden;
+  }
 }
 #stalker{
   position: absolute;
@@ -158,5 +167,8 @@ export default {
   opacity: 0;/*開いた瞬間非表示*/
   pointer-events: none;/*【重要】マウス直下に常に画像があるので、全てをクリックできなくなる。noneにして対応*/
   transition: transform 180ms;
+  @media screen and (max-width: 1024px) {
+    visibility: hidden;
+  }
 }
 </style>
