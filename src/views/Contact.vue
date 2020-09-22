@@ -2,7 +2,15 @@
 <div id="contact">
     <div class="inner">
       <section-title></section-title>
-      <form class="contactForm" action="" v-on:submit="checkForm" method="POST" netlify>
+      <form
+      name="contactForm"
+      class="contactForm"
+      v-on:submit="checkForm"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      >
+      <input type="hidden" name="form-name" value="contactForm" />
         <div v-if="errors.length">
           <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
         </div>
