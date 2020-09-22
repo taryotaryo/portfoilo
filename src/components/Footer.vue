@@ -1,5 +1,5 @@
 <template>
-    <footer v-show="footerdisplay">
+    <footer v-show="footerDisplay">
         <p>Copyright © 2020 Ryota Iwasaki All Rights Reserved.</p>
     </footer>
 </template>
@@ -9,7 +9,7 @@ import { bus } from '../main.js'
 export default {
   data: function () {
     return {
-      footerdisplay: true
+      footerDisplay: true
     }
   },
   created: function () {
@@ -20,11 +20,11 @@ export default {
     focus: function () {
       const windowWidth = window.innerWidth
       if (windowWidth < 1024) {
-        this.footerdisplay = false
+        this.footerDisplay = false
       }
     },
     blur: function () {
-      this.footerdisplay = true
+      this.footerDisplay = true
     }
   }
 }

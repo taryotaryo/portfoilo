@@ -2,7 +2,7 @@
 <div id="contact">
     <div class="inner">
       <section-title></section-title>
-      <form class="contactForm" action="" v-on:submit="checkForm" method="POST" data-netlify="true">
+      <form class="contactForm" action="" v-on:submit="checkForm" method="POST" netlify>
         <div v-if="errors.length">
           <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
         </div>
@@ -147,6 +147,10 @@ export default {
             color: #fff;
             @media screen and (max-width: 1024px) {
               width: 100%;
+              transition: .3s;
+              &:active {
+                background-color: darken(#89c997, 15%);
+              }
             }
           }
           &::placeholder {

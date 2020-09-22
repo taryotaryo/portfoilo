@@ -38,7 +38,7 @@ export default {
       work1: {
         image: require('../assets/this_portfolio.mp4'),
         url: '#',
-        topic: '03',
+        topic: '01',
         techs: ['Vue.js', 'Vue CLI', 'Vue Router', 'npm', 'Netlify'],
         summaries: [
           'vue.jsで作成したポートフォリオサイト',
@@ -75,7 +75,7 @@ export default {
       work3: {
         image: require('../assets/portfolio_movie.mp4'),
         url: 'https://ta-ryo.com/lp',
-        topic: '01',
+        topic: '03',
         techs: ['HTML', 'CSS', 'hover.css', 'Javascript(jQuery)', 'Xserver'],
         summaries: [
           '縦長のシングルページで制作したポートフォリオサイト'

@@ -10,7 +10,7 @@
         <router-link to="/contact"><li class="navList" v-on:mouseover="mouseEnter()" v-on:mouseleave="mouseLeave()">Contact</li></router-link>
       </ul>
     </nav>
-    <div id="Hamburger" class="hamburger" v-on:click="spheaderIn()">
+    <div id="Hamburger" class="hamburger" v-on:click="spheaderIn()" v-show="hamburgerDisplay">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -33,6 +33,15 @@
 <script>
 import { bus } from '../main.js'
 export default {
+  data: function () {
+    return {
+      hamburgerDisplay: true
+    }
+  },
+  created: function () {
+    bus.$on('bus-event-focusInput', this.focus)
+    bus.$on('bus-event-blurInput', this.blur)
+  },
   methods: {
     mouseEnter: function () {
       bus.$emit('bus-event-onNav')
@@ -45,6 +54,15 @@ export default {
     },
     spheaderOut: function () {
       document.getElementById('navMenu-sp').classList.remove('in')
+    },
+    focus: function () {
+      const windowWidth = window.innerWidth
+      if (windowWidth < 1024) {
+        this.hamburgerDisplay = false
+      }
+    },
+    blur: function () {
+      this.hamburgerDisplay = true
     }
   }
 }
