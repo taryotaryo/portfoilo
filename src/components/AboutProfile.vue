@@ -86,51 +86,65 @@ export default {
     .space {
       margin-right: 10px;
     }
-    }
-    .account {
+  }
+  .account {
     margin-top: 20px;
     .icon {
-        display: inline-block;
-        margin-right: 50px;
-        position: relative;
-        color: #fff;
-        cursor: none;
-        font-size: 30px;
-        text-decoration: none;
-        transition: .3s;
-        @media screen and (max-width: 767px) {
-          width: 25%;
-          margin-right: 0px;
-          font-size: 50px;
-        }
-        &:hover:before {
-        content: 'Click';
-        display: block;
-        position: absolute;
-        top: -16px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 16px;
-        font-weight: bold;
+      display: inline-block;
+      margin-right: 50px;
+      position: relative;
+      color: #fff;
+      cursor: none;
+      font-size: 30px;
+      text-decoration: none;
+      transition: .3s;
+      @media screen and (max-width: 1024px) {
+        font-size: 50px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 25%;
+        margin-right: 0px;
+        font-size: 50px;
+      }
+      &:hover:before {
+      content: 'Click';
+      display: block;
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      font-weight: bold;
         @media screen and (max-width: 1024px) {
           display: none;
         }
+      }
+      &:nth-of-type(1):hover{
+      color: #171515;
+        @media screen and (max-width: 1024px) {
+          color: darken(#fff, 30%);
         }
-
-        &:nth-of-type(1):hover{
-        color: #171515;
+      }
+      &:nth-of-type(2):hover{
+      color: #55C500;
+        @media screen and (max-width: 1024px) {
+          color: darken(#fff, 30%);
         }
-        &:nth-of-type(2):hover{
-        color: #55C500;
+      }
+      &:nth-of-type(3):hover{
+      color: #00acee;
+        @media screen and (max-width: 1024px) {
+          color: darken(#fff, 30%);
         }
-        &:nth-of-type(3):hover{
-        color: #00acee;
+      }
+      &:nth-of-type(4):hover{
+      color: #487c38;
+        @media screen and (max-width: 1024px) {
+          color: darken(#fff, 30%);
         }
-        &:nth-of-type(4):hover{
-        color: #487c38;
-        }
+      }
     }
-    }
+  }
 }
 .profileImage {
     text-align: right;

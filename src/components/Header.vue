@@ -18,13 +18,13 @@
     </div>
   </div>
   <!-- スマートフォン表示 -->
-  <nav id="navMenu-sp" v-on:click="spheaderOut()">
+  <nav id="navMenu-sp" v-on:touchmove="spheaderOut()">
     <ul>
-      <router-link to="/" class="item1"><li class="navList-sp">Home</li></router-link>
-      <router-link to="/about" class="item2"><li class="navList-sp item2">About</li></router-link>
-      <router-link to="/work" class="item3"><li class="navList-sp item3">Works</li></router-link>
-      <router-link to="/post" class="item4"><li class="navList-sp item4">Posts</li></router-link>
-      <router-link to="/contact" class="item5"><li class="navList-sp item5">Contact</li></router-link>
+      <router-link to="/" class="item1"><li class="navList-sp" v-on:touchend="spheaderOut()">Home</li></router-link>
+      <router-link to="/about" class="item2"><li class="navList-sp item2" v-on:touchend="spheaderOut()">About</li></router-link>
+      <router-link to="/work" class="item3"><li class="navList-sp item3" v-on:touchend="spheaderOut()">Works</li></router-link>
+      <router-link to="/post" class="item4"><li class="navList-sp item4" v-on:touchend="spheaderOut()">Posts</li></router-link>
+      <router-link to="/contact" class="item5"><li class="navList-sp item5" v-on:touchend="spheaderOut()">Contact</li></router-link>
     </ul>
   </nav>
 </header>
@@ -174,6 +174,13 @@ header {
         color: #111;
         list-style: none;
         line-height: 180px;
+        transition: 0.2s;
+        &:active {
+          background-color: #89c997;
+          border: none;
+          color: #fff;
+          transform: translateY(-20px);
+        }
         @media screen and (max-width: 767px) {
           height: 120px;
           width: 120px;

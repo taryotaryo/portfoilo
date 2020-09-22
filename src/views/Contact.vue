@@ -2,7 +2,7 @@
 <div id="contact">
     <div class="inner">
       <section-title></section-title>
-      <form class="contactForm" action="" v-on:submit="checkForm">
+      <form class="contactForm" action="" v-on:submit="checkForm" method="POST" data-netlify="true">
         <div v-if="errors.length">
           <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
         </div>
@@ -37,7 +37,12 @@
         v-on:focus="focus()"
         v-on:blur="blur()">
         </textarea>
-        <input type="submit" value="Send">
+        <input
+        type="submit"
+        value="Send"
+        v-on:mouseover="mouseEnterSend()"
+        v-on:mouseleave="mouseLeave()"
+        >
       </form>
     </div>
 </div>
@@ -84,6 +89,9 @@ export default {
     },
     mouseEnter: function () {
       bus.$emit('bus-event-onInput')
+    },
+    mouseEnterSend: function () {
+      bus.$emit('bus-event-onSend')
     },
     mouseLeave: function () {
       bus.$emit('bus-event-off')

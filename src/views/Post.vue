@@ -72,6 +72,9 @@ export default {
           width: 90%;
           margin-right: auto;
           margin-left: auto;
+          &:active {
+            background-color: darken(#fff, 15%);
+          }
         }
         @media screen and (max-width: 767px) {
           width: 100%;
@@ -79,6 +82,9 @@ export default {
 
         &:hover {
           transform: translateY(-10px);
+          @media screen and (max-width: 1024px) {
+            transform: none;
+          }
         }
         a {
           display: block;
